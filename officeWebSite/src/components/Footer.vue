@@ -22,11 +22,17 @@
       <p class="contact-number">Email : 123123@11.com</p>
     </div>
     <div class="copyright">
-      <p class="copyright-content">© 2020-2020,www.lalal.com,All rights reserved 浙ICP备1231号-1 版权所有：国际贸易有限公司</p>
+      <div class="copyright-content">
+        <p>© 2020-2020,www.lalal.com,All rights reserved 浙ICP备1231号-1 版权所有：国际贸易有限公司</p>
+      </div>
     </div>
   </div>
 </template>
 <style lang="less" scoped>
+p {
+  padding: 0;
+  margin: 0;
+}
 .footer {
   background-color: rgb(43, 43, 43);
   bottom: 0;
@@ -36,6 +42,7 @@
   .menu {
     padding: 10px 160px;
     ul {
+      border-bottom: 1px solid #5a5a5a;
       li {
         width: 20%;
         display: inline-block;
@@ -43,6 +50,7 @@
           color: white;
           text-decoration: none;
           display: inline-block;
+          line-height: 240%;
         }
       }
     }
@@ -64,6 +72,8 @@
   .copyright {
     background-color: rgb(34, 34, 34);
     .copyright-content {
+      margin: 0;
+      padding: 0;
       vertical-align: middle;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 12px;

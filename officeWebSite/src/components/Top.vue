@@ -2,7 +2,7 @@
   <div class="top">
     <div class="top-content">
       <div class="top-company">
-        <img class="logo-img" src="../assets/image/logo.png" />
+        <img class="logo-img" src="@/assets/image/logo.png" />
         <div class="company-name">富乐达科技</div>
       </div>
       <div class="top-contact">

@@ -3,6 +3,8 @@
     <Top></Top>
     <Menu></Menu>
     <Swiper></Swiper>
+    <Introduction></Introduction>
+    <Project></Project>
     <Footer></Footer>
   </div>
 </template>
@@ -12,13 +14,17 @@ import Top from "./Top";
 import Menu from "./Menu";
 import Footer from "./Footer";
 import Swiper from "./home/Swiper";
+import Introduction from "./home/Introduction";
+import Project from "./home/Project";
 export default {
   name: "Home",
   components: {
     Top,
     Menu,
     Footer,
-    Swiper
+    Swiper,
+    Introduction,
+    Project
   },
   data() {
     return {
@@ -45,6 +51,7 @@ li {
   display: inline-block;
 }
 a {
-  color: #42b983;
+  color: white;
+  text-decoration: none;
 }
 </style>
