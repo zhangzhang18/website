@@ -3,16 +3,16 @@
     <div class="menu">
       <ul>
         <li>
-          <a href="#home">主页</a>
+          <router-link to="/">主页</router-link>
         </li>
         <li>
           <a href="#product">产品</a>
         </li>
         <li>
-          <a href="#news">News</a>
+          <a href="#news">新闻</a>
         </li>
         <li>
-          <a href="#contact">联系</a>
+          <router-link to="/contact">联系</router-link>
         </li>
       </ul>
     </div>

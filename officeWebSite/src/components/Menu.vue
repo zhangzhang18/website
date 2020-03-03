@@ -11,7 +11,7 @@
           <a href="#">产品</a>
         </li>
         <li>
-          <a href="#">News</a>
+          <a href="#">新闻</a>
         </li>
         <li>
           <a href="#">
