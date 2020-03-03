@@ -23,8 +23,8 @@
 <style lang="less" scoped>
 .top {
   .top-content {
-    padding: 10px 160px;
     display: flex;
+    padding: 10px 160px;
     .top-company {
       margin-left: 10px;
       width: 70%;
@@ -38,7 +38,7 @@
       width: 20%;
       padding: 10px;
       .contact-call {
-        font-size: 26px;
+        font: 26px Georgia, "Times New Roman", Times, serif;
       }
     }
     .top-language {
@@ -47,7 +47,7 @@
       position: relative;
       display: inline-block;
       .change-language-btn {
-        background-color: #499fe0;
+        background-color: #3773db;
         color: white;
         padding: 16px;
         font-size: 16px;
@@ -73,7 +73,7 @@
     }
     .top-language:hover {
       .change-language-btn {
-        background-color:  #499fc0;
+        background-color: #499fc0;
       }
       .change-language-content {
         display: block;

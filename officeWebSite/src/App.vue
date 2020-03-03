@@ -1,12 +1,23 @@
 <template>
   <div id="app">
+    <Top></Top>
+    <Menu></Menu>
     <router-view />
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Top from "@/components/Top";
+import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 export default {
-  name: "App"
+  name: "Home",
+  components: {
+    Top,
+    Menu,
+    Footer
+  }
 };
 </script>
 <style lang="less">

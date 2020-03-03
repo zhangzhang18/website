@@ -23,7 +23,7 @@
     </div>
     <div class="copyright">
       <div class="copyright-content">
-        <p>© 2020-2020,www.lalal.com,All rights reserved 浙ICP备1231号-1 版权所有：国际贸易有限公司</p>
+        <p>© 2020-2020,www.fldtech.jp,All rights reserved 浙ICP备1231号-1 版权所有：国际贸易有限公司</p>
       </div>
     </div>
   </div>
@@ -40,7 +40,6 @@ p {
   right: 0;
   text-align: center;
   .menu {
-    padding: 10px 160px;
     ul {
       border-bottom: 1px solid #5a5a5a;
       li {
