@@ -3,13 +3,10 @@
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
       <swiper-slide>
-        <img class="banner-img" src="@/assets/image/banner/about-01.jpg" />
+        <img class="banner-img" src="@/assets/image/banner/banner-01.jpg" />
       </swiper-slide>
       <swiper-slide>
-        <img class="banner-img" src="@/assets/image/banner/about-02.jpg" />
-      </swiper-slide>
-      <swiper-slide>
-        <img class="banner-img" src="@/assets/image/banner/about-03.jpg" />
+        <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>

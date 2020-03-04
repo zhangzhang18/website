@@ -8,13 +8,17 @@
           </a>
         </li>
         <li>
-          <a href="#">产品</a>
+          <a href="#product">
+            <router-link to="/product">产品</router-link>
+          </a>
         </li>
         <li>
-          <a href="#">新闻</a>
+          <a href="#news">
+            <router-link to="/news">新闻</router-link>
+          </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#contact">
             <router-link to="/contact">联系</router-link>
           </a>
         </li>
@@ -25,17 +29,22 @@
 <style lang="less" scoped>
 .header {
   background-color: rgb(34, 34, 34);
+  // position: fixed;
+  // width: 100%;
+  // top: 0;
+  // z-index: 999;
   .menu {
     padding: 10px 160px;
     text-align: center;
     ul {
       li {
-        width: 20%;
         display: inline-block;
+        width: 20%;
         a {
+          width: 100%;
+          display: inline-block;
           color: white;
           text-decoration: none;
-          display: inline-block;
         }
       }
     }

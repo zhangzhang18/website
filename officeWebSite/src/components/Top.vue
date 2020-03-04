@@ -73,7 +73,7 @@
     }
     .top-language:hover {
       .change-language-btn {
-        background-color: #499fc0;
+        background-color: #3773bd;
       }
       .change-language-content {
         display: block;

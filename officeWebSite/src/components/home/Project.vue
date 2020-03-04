@@ -5,15 +5,24 @@
         <p>业务优势</p>
       </div>
       <div class="content">
-        <a href target="_blank" rel="about">
-          <p>全球合作</p>
-        </a>
-        <a href target="_blank" rel="about">
-          <p>定制加工</p>
-        </a>
-        <a href target="_blank" rel="about">
-          <p>专业服务</p>
-        </a>
+        <div class="detail">
+          <a href target="_blank" rel="about">
+            <img src="@/assets/image/home/global.png" />
+            <p>全球合作</p>
+          </a>
+        </div>
+        <div class="detail">
+          <a href target="_blank" rel="about">
+            <img src="@/assets/image/home/customize.png" />
+            <p>定制加工</p>
+          </a>
+        </div>
+        <div class="detail">
+          <a href target="_blank" rel="about">
+            <img src="@/assets/image/home/profession.png" />
+            <p>专业服务</p>
+          </a>
+        </div>
       </div>
     </div>
     <div class="news">
@@ -22,7 +31,7 @@
       </div>
       <div class="content">
         <div class="news-img">
-          <img src="@/assets/image/home/news-01.jpg" />
+          <img src="@/assets/image/home/news.jpg" />
         </div>
         <div class="news-article-list">
           <ul>
@@ -58,18 +67,35 @@
   text-align: center;
   padding: 10px 160px;
   .title {
-    color: rgb(26, 160, 230);
+    color: #3773dc;
     font-family: 微软雅黑;
     font-size: 30px;
   }
   .advantage {
-    .content a {
-      margin: 0 15px;
-      border: 1px solid rgba(240, 240, 240, 1);
-      border-radius: 3px;
-      display: inline-block;
-      width: 30%;
-      line-height: 138px;
+    .content {
+      text-align: center;
+      width: 100%;
+      display: flex;
+      .detail {
+        border: 1px solid rgba(240, 240, 240, 1);
+        border-radius: 3px;
+        margin: 0 auto;
+        a {
+          display: flex;
+          text-align: center;
+          padding: 50px;
+          img {
+            width: 80px;
+            height: 80px;
+          }
+          p {
+            margin: auto;
+            padding: 0 50px;
+            vertical-align: middle;
+            line-height: 140%;
+          }
+        }
+      }
     }
   }
   .news {

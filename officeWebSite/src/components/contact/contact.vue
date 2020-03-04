@@ -39,7 +39,7 @@
         </div>
         <div class="button form-input">
           <button type="submit">Send</button>
-          <button type="reset">Reset</button>
+          <button type="reset" class="reset">Reset</button>
         </div>
       </form>
     </div>
@@ -114,6 +114,11 @@ export default {
       text-shadow: 1px 1px 1px #3773dc;
       cursor: pointer;
       margin: 0 100px;
+      font-size: 16px;
+    }
+    .reset {
+      background: #e27575;
+      text-shadow: 1px 1px 1px #e2757b;
     }
   }
 }
@@ -124,6 +129,7 @@ export default {
     margin: 0 auto;
     display: block;
     height: 300px;
+    width: 100%;
     object-fit: cover;
   }
 }
