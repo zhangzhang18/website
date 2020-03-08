@@ -13,9 +13,14 @@
               <li v-for="(products, index) in category.products" :key="index">
                 <div :class="index==0?'menu-category menu-first':'menu-category'">
                   <span>{{products.name}}</span>
-                  <ul class="sub-menu">
-                    <li v-for="(product, index) in products.product" :key="index">{{product.title}}</li>
-                  </ul>
+                  <div v-if="products.product.length!=1">
+                    <ul class="sub-menu">
+                      <li
+                        v-for="(product, index) in products.product"
+                        :key="index"
+                      >{{product.title}}</li>
+                    </ul>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -49,22 +54,17 @@ export default {
   },
   mounted: function() {
     var list = this.list;
-    console.log("list" + list);
     for (let index = 0; index < list.length; index++) {
       const category = list[index].products;
       var categoryArr = [];
-      console.log("category" + category);
       for (let index = 0; index < category.length; index++) {
         const product = category[index].product;
-        console.log("product" + product);
         for (let index = 0; index < product.length; index++) {
           categoryArr.push(product[index]);
         }
       }
       this.newProduct.push(categoryArr);
     }
-
-    console.log(this.newProduct);
   }
 };
 </script>
@@ -116,6 +116,7 @@ export default {
               line-height: 180%;
               padding-left: 0px;
               li {
+                color: #8b8b8b;
                 margin: 0;
                 padding-left: 10px;
                 a {
@@ -143,6 +144,7 @@ export default {
             }
             p {
               width: 200px;
+              margin-top: 0;
             }
           }
         }
