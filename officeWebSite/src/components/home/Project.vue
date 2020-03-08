@@ -90,7 +90,7 @@
           }
           p {
             margin: auto;
-            padding: 0 50px;
+            padding: 0px 10px;
             vertical-align: middle;
             line-height: 140%;
           }
@@ -110,8 +110,10 @@
       }
     }
     .news-article-list {
+      margin: 0 auto;
+      width: 42%;
       ul {
-        padding: 0 205px;
+        margin: 0 auto;
         li:nth-child(1) {
           p {
             a {

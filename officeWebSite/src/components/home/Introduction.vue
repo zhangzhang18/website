@@ -33,14 +33,17 @@
     .introduction-text {
       color: rgb(102, 102, 102);
       line-height: 200%;
-      font-size: 13px;
-      white-space: pre-wrap;
+      font-size: 16px;
     }
   }
-  .introduction-img img {
-    width: 500px;
-    height: 386px;
-    object-fit: cover;
+  .introduction-img {
+    margin: auto;
+    img {
+      margin: auto 0;
+      width: 500px;
+      height: 386px;
+      object-fit: cover;
+    }
   }
 }
 </style>

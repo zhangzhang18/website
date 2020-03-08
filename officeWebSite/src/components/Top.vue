@@ -3,18 +3,36 @@
     <div class="top-content">
       <div class="top-company">
         <img class="logo-img" src="@/assets/image/logo.png" />
-        <div class="company-name">富乐达科技</div>
+        <div class="company-name">
+          <img src="@/assets/image/china-company-name.png" />
+        </div>
       </div>
       <div class="top-contact">
-        <div class="contact-call">CALL US</div>
-        <div class="contact-number">123-123</div>
+        <div class="contact-content">
+          <div class="contact-img">
+            <img src="@/assets/image/contact/phone.png" />
+          </div>
+          <div class="contact-call">
+            <strong>CALL US</strong>
+            <div class="contact-number">+86-18004113720</div>
+          </div>
+        </div>
+        <div class="contact-content">
+          <div class="contact-img">
+            <img src="@/assets/image/contact/email.png" />
+          </div>
+          <div class="contact-call">
+            <strong>EMAIL US</strong>
+            <div class="contact-number">fletech@dingtalk.com</div>
+          </div>
+        </div>
       </div>
       <div class="top-language">
         <button class="change-language-btn">语言</button>
         <div class="change-language-content">
           <a href="#">中文</a>
-          <a href="#">英语</a>
-          <a href="#">日语</a>
+          <a href="#">English</a>
+          <a href="#">Japanese</a>
         </div>
       </div>
     </div>
@@ -26,19 +44,38 @@
     display: flex;
     padding: 10px 160px;
     .top-company {
-      margin-left: 10px;
-      width: 70%;
+      margin: auto 0;
+      width: 55%;
       display: flex;
+      .logo-img {
+        width: 80px;
+      }
       .company-name {
-        margin: 10px;
+        margin: auto 0;
         display: inline-block;
+        img {
+          width: 160px;
+        }
       }
     }
     .top-contact {
-      width: 20%;
-      padding: 10px;
-      .contact-call {
-        font: 26px Georgia, "Times New Roman", Times, serif;
+      width: 35%;
+      display: flex;
+      .contact-content {
+        display: flex;
+        padding: 10px;
+        .contact-img img {
+          width: 32px;
+          height: 32px;
+        }
+        .contact-call {
+          color: #e27575;
+          padding: 5px;
+          font: 14px Georgia, "Times New Roman", Times, serif;
+          .contact-number {
+            color: rgb(67, 67, 67);
+          }
+        }
       }
     }
     .top-language {
@@ -46,6 +83,7 @@
       padding: 10px;
       position: relative;
       display: inline-block;
+      z-index: 998;
       .change-language-btn {
         background-color: #3773db;
         color: white;

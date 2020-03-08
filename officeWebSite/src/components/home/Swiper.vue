@@ -3,7 +3,10 @@
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
       <swiper-slide>
-        <img class="banner-img" src="@/assets/image/banner/banner-01.jpg" />
+        <div class="banner-img">
+
+          <img class="banner-img" src="@/assets/image/banner/banner-01.jpg" />
+        </div>
       </swiper-slide>
       <swiper-slide>
         <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />

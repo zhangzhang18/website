@@ -26,12 +26,15 @@
     </div>
     <div class="contact-content">
       <p class="contact-title">Contact Us</p>
-      <p class="contact-number">Tel : +86-123123123 / Cell : +86-123123123</p>
-      <p class="contact-number">Email : 123123@11.com</p>
+      <p class="contact-number">富乐达科技有限公司</p>
+      <p class="contact-number">Unit A1, 7/F, Cheuk Nang Plaza 250 Hennessy Road,Hong Kong</p>
+      <p class="contact-number">Wechat:18004113729</p>
+      <p class="contact-number">Contact:LEO / Call:+86-18004113729</p>
+      <p class="contact-number">Email:fldtech@dingtalk.com</p>
     </div>
     <div class="copyright">
       <div class="copyright-content">
-        <p>© 2020-2020,www.fldtech.jp,All rights reserved 浙ICP备1231号-1 版权所有：国际贸易有限公司</p>
+        <p>© 2020-2020,www.fldtech.jp</p>
       </div>
     </div>
   </div>
