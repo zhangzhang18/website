@@ -1,44 +1,65 @@
 [
     {
+        "name": "semiconductor",
         "category": "半导体产品",
         "products": [
             {
                 "title": "1~3 inch",
-                "imgUrl": "@/assets/image/products/one-three-inch.jpg",
-                "props": [
+                "mainImgUrl": "@/assets/image/products/semiconductor/one-three-inch.jpg",
+                "secondaryImgs": [
                     {
-                        "key": "生长方式/Growth",
-                        "value": "CZ，MCZ，FZ"
+                        "imgUrl": "@/assets/image/products/semiconductor/one-three-inch.jpg"
                     },
                     {
-                        "key": "等级/Grade",
-                        "value": "Prime，Test，Dummy，etc."
+                        "imgUrl": "@/assets/image/products/semiconductor/one-three-inch.jpg"
                     },
                     {
-                        "key": "直径/Diameter",
-                        "value": "other diameters, such as 10mm,12.7mm,35mm,40mm are also possible"
+                        "imgUrl": "@/assets/image/products/semiconductor/one-three-inch.jpg"
+                    }
+                ],
+                "propImgUrl": [
+                    {
+                        "imgUrl": "@/assets/image/products/semiconductor/prop-01.jpg"
+                    },
+                    {
+                        "imgUrl": "@/assets/image/products/semiconductor/prop-02.jpg"
                     }
                 ]
             },
             {
                 "title": "4-6 inch",
-                "imgUrl": "@/assets/image/products/four-six-inch.jpg",
-                "props": [
+                "mainImgUrl": "@/assets/image/products/semiconductor/one-three-inch.jpg",
+                "secondaryImgs": [
                     {
-                        "key": "生长方式/Growth",
-                        "value": "CZ，MCZ，FZ"
+                        "imgUrl": "@/assets/image/products/semiconductor/one-three-inch.jpg"
+                    },
+                    {
+                        "imgUrl": "@/assets/image/products/semiconductor/one-three-inch.jpg"
+                    },
+                    {
+                        "imgUrl": "@/assets/image/products/semiconductor/one-three-inch.jpg"
+                    }
+                ],
+                "propImgUrl": [
+                    {
+                        "imgUrl": "@/assets/image/products/semiconductor/prop-01.jpg"
+                    },
+                    {
+                        "imgUrl": "@/assets/image/products/semiconductor/prop-02.jpg"
                     }
                 ]
             }
         ]
     },
     {
+        "name": "solarEnergy",
         "category": "太阳能产品",
         "products": [
             {}
         ]
     },
     {
+        "name": "ceramics",
         "category": "陶瓷产品",
         "products": [
             {}

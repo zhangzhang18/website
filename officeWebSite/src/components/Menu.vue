@@ -9,7 +9,7 @@
         </li>
         <li>
           <a href="#product">
-            <router-link to="/product">产品</router-link>
+            <router-link to="/products">产品</router-link>
           </a>
         </li>
         <li>

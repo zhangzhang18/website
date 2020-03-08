@@ -1,0 +1,47 @@
+[
+    {
+        "category": "半导体产品",
+        "products": [
+            {
+                "title": "1~3 inch",
+                "imgUrl": "@/assets/image/products/one-three-inch.jpg",
+                "props": [
+                    {
+                        "key": "生长方式/Growth",
+                        "value": "CZ，MCZ，FZ"
+                    },
+                    {
+                        "key": "等级/Grade",
+                        "value": "Prime，Test，Dummy，etc."
+                    },
+                    {
+                        "key": "直径/Diameter",
+                        "value": "other diameters, such as 10mm,12.7mm,35mm,40mm are also possible"
+                    }
+                ]
+            },
+            {
+                "title": "4-6 inch",
+                "imgUrl": "@/assets/image/products/four-six-inch.jpg",
+                "props": [
+                    {
+                        "key": "生长方式/Growth",
+                        "value": "CZ，MCZ，FZ"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "太阳能产品",
+        "products": [
+            {}
+        ]
+    },
+    {
+        "category": "陶瓷产品",
+        "products": [
+            {}
+        ]
+    }
+]
