@@ -1,8 +1,6 @@
 <template>
   <div class="product">
-    <div class="product-img">
-      <img src="@/assets/image/product/product.jpg" />
-    </div>
+    <Swiper></Swiper>
     <div class="content">
       <div class="title">
         <p>产品服务</p>
@@ -38,7 +36,11 @@
 </template>
 <script>
 const json = require("/static/products/products.json");
+import Swiper from "./../product/Swiper";
 export default {
+  components: {
+    Swiper
+  },
   data() {
     return {
       list: json

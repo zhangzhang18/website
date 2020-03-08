@@ -4,7 +4,7 @@
       <div class="top-company">
         <img class="logo-img" src="@/assets/image/logo.png" />
         <div class="company-name">
-          <img src="@/assets/image/china-company-name.png" />
+          <img src="@/assets/image/home/name-01.png" />
         </div>
       </div>
       <div class="top-contact">

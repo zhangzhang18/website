@@ -3,13 +3,49 @@
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
       <swiper-slide>
-        <div class="banner-img">
-
-          <img class="banner-img" src="@/assets/image/banner/banner-01.jpg" />
+        <div class="banner-img-box">
+          <img class="banner-img" src="@/assets/image/banner/banner-01.png" />
+          <div class="banner-text">
+            <p>
+              <strong>高品质半导体产品服务商</strong>
+            </p>
+            <p>
+              <strong>致力于全面的半导体硅片解决方案</strong>
+            </p>
+            <p>
+              <span>
+                <strong>一站式</strong>
+              </span>
+              <span>
+                <strong>全球化</strong>
+              </span>
+            </p>
+          </div>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
+        <div class="banner-img-box">
+          <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
+          <div class="banner-text">
+            <p>
+              <strong>拓展太阳能以及氮化硅等新领域产品</strong>
+            </p>
+            <p>
+              <strong>提供现货产品，定制加工服务</strong>
+            </p>
+            <p>
+              <span>
+                <strong>高效</strong>
+              </span>
+              <span>
+                <strong>专业</strong>
+              </span>
+              <span>
+                <strong>便利</strong>
+              </span>
+            </p>
+          </div>
+        </div>
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>
@@ -85,7 +121,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped  lang="less">
 h1,
 h2 {
   font-weight: normal;
@@ -101,11 +137,29 @@ li {
 a {
   color: #42b983;
 }
-.banner-img {
-  vertical-align: middle;
-  height: 600px;
-  object-fit: cover;
-}
+
 .swiper-slide {
+  height: 600px;
+  position: relative;
+  img {
+    position: relative;
+    content: "";
+    height: 600px;
+    display: block;
+    z-index: 10;
+  }
+  .banner-text {
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 11;
+    padding-top: 50px;
+    text-align: center;
+    color: #3773db;
+    font-size: 50px;
+    height: 600px;
+  }
 }
 </style>
