@@ -69,6 +69,9 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+a {
+  cursor: pointer;
+}
 .product {
   text-align: center;
   .content {
@@ -135,16 +138,31 @@ export default {
           padding: 0;
           display: flex;
           flex-wrap: wrap;
+          width: 100%;
           .img {
+            width: 21%;
+            margin: 2% 2%;
+            height: 0;
+            padding-bottom: 21%;
+            position: relative;
+            margin-bottom: 50px;
             img {
-              padding: 0 20px;
-              width: 200px;
-              height: 200px;
+              // padding: 0 20px;
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
               object-fit: cover;
             }
             p {
-              width: 200px;
-              margin-top: 0;
+              position: absolute;
+              bottom: -50px;
+              width: 100%;
+              text-align: center;
+              line-height: 50px;
+              height: 50px;
+              margin: 0;
             }
           }
         }
