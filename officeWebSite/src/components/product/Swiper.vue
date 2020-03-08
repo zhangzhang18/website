@@ -4,17 +4,12 @@
       <!-- slides -->
       <swiper-slide>
         <div class="banner-img-box">
-          <img class="banner-img" src="@/assets/image/product/product-01.jpg" />
+          <img class="banner-img" src="@/assets/image/product/product-01.jpeg" />
         </div>
       </swiper-slide>
       <swiper-slide>
         <div class="banner-img-box">
           <img class="banner-img" src="@/assets/image/product/product-02.jpg" />
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="banner-img-box">
-          <img class="banner-img" src="@/assets/image/product/product-03.jpg" />
         </div>
       </swiper-slide>
       <!-- Optional controls -->
@@ -109,11 +104,11 @@ a {
 }
 
 .swiper-slide {
-  height: 600px;
+  height: 300px;
   position: relative;
   img {
     position: relative;
-    height: 600px;
+    height: 100%;
     content: "";
     display: block;
     z-index: 10;

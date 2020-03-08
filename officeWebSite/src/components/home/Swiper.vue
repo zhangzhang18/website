@@ -25,7 +25,7 @@
       </swiper-slide>
       <swiper-slide>
         <div class="banner-img-box">
-          <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
+          <img class="banner-img" src="@/assets/image/banner/banner-03.jpeg" />
           <div class="banner-text">
             <p>
               <strong>拓展太阳能以及氮化硅等新领域产品</strong>
@@ -144,7 +144,7 @@ a {
   img {
     position: relative;
     content: "";
-    height: 600px;
+    height: 100%;
     display: block;
     z-index: 10;
   }

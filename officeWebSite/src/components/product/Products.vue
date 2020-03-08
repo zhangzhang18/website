@@ -5,29 +5,28 @@
       <div class="title">
         <p>产品服务</p>
       </div>
-      <div v-for="(category, index) in list" :key="index" class="product-category">
+      <div v-for="(category, indexone) in list" :key="indexone" class="product-category">
         <p>{{category.category}}</p>
         <div class="product-content">
           <div class="product-menu">
             <ul class="menu">
-              <li v-for="(product, index) in category.products" :key="index">
+              <li v-for="(products, index) in category.products" :key="index">
                 <div :class="index==0?'menu-category menu-first':'menu-category'">
-                  <span>{{product.title}}</span>
+                  <span>{{products.name}}</span>
+                  <ul class="sub-menu">
+                    <li v-for="(product, index) in products.product" :key="index">{{product.title}}</li>
+                  </ul>
                 </div>
               </li>
             </ul>
           </div>
           <div class="product-img">
-            <ul class="detail">
-              <li v-for="(product, index) in category.products" :key="index">
-                <div class="img">
-                  <a>
-                    <img :src="product.mainImgUrl" />
-                    <p>{{product.title}}</p>
-                  </a>
-                </div>
-              </li>
-            </ul>
+            <div class="img" v-for="(product, index) in newProduct[indexone+1]" :key="index">
+              <a>
+                <img :src="product.mainImgUrl" />
+                <p>{{product.title}}</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -36,6 +35,7 @@
 </template>
 <script>
 const json = require("/static/products/products.json");
+const images = require("/static/products/products");
 import Swiper from "./../product/Swiper";
 export default {
   components: {
@@ -43,29 +43,34 @@ export default {
   },
   data() {
     return {
-      list: json
+      list: json,
+      newProduct: [[]]
     };
   },
-  created: function() {
-    console.log(this.list);
+  mounted: function() {
+    var list = this.list;
+    console.log("list" + list);
+    for (let index = 0; index < list.length; index++) {
+      const category = list[index].products;
+      var categoryArr = [];
+      console.log("category" + category);
+      for (let index = 0; index < category.length; index++) {
+        const product = category[index].product;
+        console.log("product" + product);
+        for (let index = 0; index < product.length; index++) {
+          categoryArr.push(product[index]);
+        }
+      }
+      this.newProduct.push(categoryArr);
+    }
+
+    console.log(this.newProduct);
   }
 };
 </script>
 <style lang="less" scoped>
 .product {
   text-align: center;
-  .product-img {
-    text-align: center;
-    margin-bottom: 50px;
-    padding: 0;
-    img {
-      margin: 0 auto;
-      display: block;
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-  }
   .content {
     padding: 10px 160px;
     .title p {
@@ -124,26 +129,20 @@ export default {
         }
         .product-img {
           padding-right: 50px;
-          .detail {
-            margin: auto;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            list-style-type: none;
-            li {
-              vertical-align: top;
-              border-width: 3px;
-              .img {
-                img {
-                  padding: 0 20px;
-                  width: 200px;
-                  height: 200px;
-                  object-fit: cover;
-                }
-                p {
-                  width: 200px;
-                }
-              }
+          text-align: center;
+          margin-bottom: 50px;
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+          .img {
+            img {
+              padding: 0 20px;
+              width: 200px;
+              height: 200px;
+              object-fit: cover;
+            }
+            p {
+              width: 200px;
             }
           }
         }
