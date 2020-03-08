@@ -4,7 +4,7 @@
       <!-- slides -->
       <swiper-slide>
         <div class="banner-img-box">
-          <img class="banner-img" src="@/assets/image/product/product-01.jpeg" />
+          <img class="banner-img" src="@/assets/image/product/product-01.jpg" />
         </div>
       </swiper-slide>
       <swiper-slide>
@@ -106,8 +106,10 @@ a {
 .swiper-slide {
   height: 300px;
   position: relative;
+  width: 100%;
   img {
     position: relative;
+    width: 100%;
     height: 100%;
     content: "";
     display: block;

@@ -25,14 +25,7 @@
               </li>
             </ul>
           </div>
-          <div class="product-img">
-            <div class="img" v-for="(product, index) in newProduct[indexone+1]" :key="index">
-              <a>
-                <img :src="product.mainImgUrl" />
-                <p>{{product.title}}</p>
-              </a>
-            </div>
-          </div>
+         <ProductList :index="indexone+1" :smallclass="smallclass" :name="name"></ProductList>
         </div>
       </div>
     </div>
@@ -42,12 +35,16 @@
 const json = require("/static/products/products.json");
 const images = require("/static/products/products");
 import Swiper from "./../product/Swiper";
+import ProductList from "./../product/ProductList.vue";
 export default {
   components: {
-    Swiper
+    Swiper,
+    ProductList
   },
   data() {
     return {
+      smallclass:"",
+      name:"",
       list: json,
       newProduct: [[]]
     };
@@ -128,41 +125,6 @@ a {
                   color: #4d4d4d;
                 }
               }
-            }
-          }
-        }
-        .product-img {
-          padding-right: 50px;
-          text-align: center;
-          margin-bottom: 50px;
-          padding: 0;
-          display: flex;
-          flex-wrap: wrap;
-          width: 100%;
-          .img {
-            width: 21%;
-            margin: 2% 2%;
-            height: 0;
-            padding-bottom: 21%;
-            position: relative;
-            margin-bottom: 50px;
-            img {
-              // padding: 0 20px;
-              position: absolute;
-              left: 0;
-              top: 0;
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-            p {
-              position: absolute;
-              bottom: -50px;
-              width: 100%;
-              text-align: center;
-              line-height: 50px;
-              height: 50px;
-              margin: 0;
             }
           }
         }
