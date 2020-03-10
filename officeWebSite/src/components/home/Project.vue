@@ -114,7 +114,7 @@
       text-align: left;
       ul {
         margin: 0 auto;
-        white-space:nowrap;
+        white-space: nowrap;
         width: 531px;
         li:nth-child(1) {
           p {
@@ -148,6 +148,14 @@
           }
         }
       }
+    }
+  }
+}
+@media screen and(max-device-width:1200px) {
+  .projects {
+    padding: 0;
+    .news-article-list {
+      padding: 0;
     }
   }
 }
