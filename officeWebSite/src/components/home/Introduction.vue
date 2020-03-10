@@ -46,4 +46,14 @@
     }
   }
 }
+@media screen and(max-device-width:1200px) {
+  .introduction {
+    padding: 0;
+    display: block;
+    .introduction-img img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
 </style>

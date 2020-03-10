@@ -12,12 +12,13 @@
             <ul class="menu">
               <li v-for="(products, index) in category.products" :key="index">
                 <div :class="index==0?'menu-category menu-first':'menu-category'">
-                  <span>{{products.name}}</span>
+                  <span @click="changeClass(products.name)">{{products.name}}</span>
                   <div v-if="products.product.length!=1">
                     <ul class="sub-menu">
                       <li
                         v-for="(product, index) in products.product"
                         :key="index"
+                        @click="changeName(product.title)"
                       >{{product.title}}</li>
                     </ul>
                   </div>
@@ -25,7 +26,12 @@
               </li>
             </ul>
           </div>
-         <ProductList :index="indexone+1" :smallclass="smallclass" :name="name"></ProductList>
+          <ProductList
+            :index="indexone+1"
+            :smallclass="smallclass"
+            :productname="productname"
+            :flag="flag"
+          ></ProductList>
         </div>
       </div>
     </div>
@@ -43,26 +49,23 @@ export default {
   },
   data() {
     return {
-      smallclass:"",
-      name:"",
+      smallclass: "",
+      productname: "",
+      flag: false,
       list: json,
       newProduct: [[]]
     };
   },
-  mounted: function() {
-    var list = this.list;
-    for (let index = 0; index < list.length; index++) {
-      const category = list[index].products;
-      var categoryArr = [];
-      for (let index = 0; index < category.length; index++) {
-        const product = category[index].product;
-        for (let index = 0; index < product.length; index++) {
-          categoryArr.push(product[index]);
-        }
-      }
-      this.newProduct.push(categoryArr);
+  methods: {
+    changeClass: function(smallclass) {
+      this.smallclass = smallclass;
+      this.flag = false;
+    },
+    changeName: function(productname) {
+      this.productname = productname;
+      this.flag = true;
     }
-  }
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -92,6 +95,7 @@ a {
             text-align: left;
             list-style-type: none;
             margin: 0px auto 20px;
+            display: inline-block;
             padding-left: 0px;
             .menu-category {
               background: #dedede;

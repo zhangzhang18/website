@@ -110,10 +110,12 @@
       }
     }
     .news-article-list {
-      margin: 0 auto;
-      width: 42%;
+      padding: 10px 160px;
+      text-align: left;
       ul {
         margin: 0 auto;
+        white-space:nowrap;
+        width: 531px;
         li:nth-child(1) {
           p {
             a {

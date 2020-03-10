@@ -27,7 +27,7 @@
                         ]
                     },
                     {
-                        "title": "4-6 inch wafer",
+                        "title": "4~6 inch wafer",
                         "mainImgUrl": "/static/products/semiconductor/four-six-inch/main.jpg",
                         "secondaryImgs": [
                             {
@@ -297,12 +297,9 @@
                                 "imgUrl": "/static/products/solarEnergy/Special-cell/secondary-01.jpg"
                             }
                         ],
-                        "propImgUrl": [
+                        "propImgUrl": [                          
                             {
-                                "imgUrl": "/static/products/solarEnergy/Special-cell/prop-01.jpg"
-                            },
-                            {
-                                "imgUrl": "/static/products/solarEnergy/Special-cell/prop-02.png"
+                                "imgUrl": "/static/products/solarEnergy/Special-cell/prop-01.png"
                             }
                         ]
                     },

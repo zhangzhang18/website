@@ -1,12 +1,14 @@
 <template>
-    <div class="product-img">
-      <div class="img" v-for="(product, i) in newProduct[index]" :key="i">
-        <a>
-          <img :src="product.mainImgUrl" />
-          <p>{{product.title}}</p>
-        </a>
-      </div>
+  <div class="product-img">
+    {{smallclasschange}}
+    <div class="detail img" v-if="flag"></div>
+    <div class="img" v-for="(product, i) in newProduct[index]" :key="i" v-else>
+      <a>
+        <img :src="product.mainImgUrl" />
+        <p>{{product.title}}</p>
+      </a>
     </div>
+  </div>
 </template>
 <script>
 const json = require("/static/products/products.json");
@@ -16,13 +18,42 @@ export default {
     index: {
       type: Number,
       default: ""
+    },
+    smallclass: {
+      type: String,
+      default: ""
+    },
+    name: {
+      type: String,
+      default: ""
+    },
+    flag: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       list: json,
+      originList: json,
       newProduct: [[]]
     };
+  },
+  computed: {
+    // 计算属性的 getter
+    smallclasschange: function() {
+      var smallclass = this.smallclass;
+      var index = this.index;
+      var originList = this.originList;
+      console.log(index);
+      console.log(JSON.stringify(originList));
+      var categoryList = this.originList[index];
+
+      console.log(JSON.stringify(categoryList));
+
+      // `this` 指向 vm 实例
+      return smallclass;
+    }
   },
   mounted: function() {
     var list = this.list;

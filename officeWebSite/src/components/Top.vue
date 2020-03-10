@@ -23,7 +23,7 @@
           </div>
           <div class="contact-call">
             <strong>EMAIL US</strong>
-            <div class="contact-number">fletech@dingtalk.com</div>
+            <div class="contact-number">fldtech@dingtalk.com</div>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
     padding: 10px 160px;
     .top-company {
       margin: auto 0;
-      width: 55%;
+      width: 50%;
       display: flex;
       .logo-img {
         width: 80px;
@@ -59,7 +59,7 @@
       }
     }
     .top-contact {
-      width: 35%;
+      width: 49%;
       display: flex;
       .contact-content {
         display: flex;
@@ -71,20 +71,24 @@
         .contact-call {
           color: #e27575;
           padding: 5px;
-          font: 14px Georgia, "Times New Roman", Times, serif;
+          strong {
+            font: 14px Georgia, "Times New Roman", Times, serif;
+          }
           .contact-number {
             color: rgb(67, 67, 67);
+            white-space: nowrap;
           }
         }
       }
     }
     .top-language {
-      width: 10%;
+      width: 8%;
       padding: 10px;
       position: relative;
       display: inline-block;
       z-index: 998;
       .change-language-btn {
+        white-space: nowrap;
         background-color: #3773db;
         color: white;
         padding: 16px;
