@@ -110,7 +110,7 @@ a {
   img {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 300px;
     content: "";
     display: block;
     z-index: 10;

@@ -28,7 +28,7 @@
           <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
           <div class="banner-text">
             <p>
-              <strong>拓展太阳能以及氮化硅等新领域产品</strong>
+              <strong>拥有太阳能以及氮化硅陶瓷等领域高品质合作伙伴</strong>
             </p>
             <p>
               <strong>提供现货产品，定制加工服务</strong>
