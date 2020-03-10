@@ -1,7 +1,7 @@
 <template>
   <div class="product-img">
     {{smallclasschange}}
-    <div class="detail img" v-if="flag"></div>
+    <div class="detail img" v-if="flag||showFlag"></div>
     <div class="img" v-for="(product, i) in newProduct[index]" :key="i" v-else>
       <a>
         <img :src="product.mainImgUrl" />
@@ -36,23 +36,38 @@ export default {
     return {
       list: json,
       originList: json,
-      newProduct: [[]]
+      newProduct: [[]],
+      showFlag:false
     };
   },
   computed: {
     // 计算属性的 getter
     smallclasschange: function() {
       var smallclass = this.smallclass;
-      var index = this.index;
-      var originList = this.originList;
-      console.log(index);
-      console.log(JSON.stringify(originList));
-      var categoryList = this.originList[index];
-
-      console.log(JSON.stringify(categoryList));
-
-      // `this` 指向 vm 实例
-      return smallclass;
+      console.info(smallclass);
+      var list = this.list;
+      // 查询小分类数据哪个大类
+      var categoryIndex = 0;
+      for (let index = 0; index < list.length; index++) {
+        const category = list[index].products;
+        for (let sindex = 0; sindex < category.length; sindex++) {
+          const smallclassName = category[sindex].name;
+          //console.info("smallclass", JSON.stringify(category[sindex]));
+          if (smallclassName == smallclass) {
+            categoryIndex = index;
+            this.newProduct = [[]];
+            // 若小分类下只有一个产品则进入详情页，否则展示小分类图片列表
+            if (category[sindex].product.length != 1) {
+              this.showFlag = false;
+              this.newProduct.push(category[sindex].product);
+            } else {
+              // 展示商品详情
+              this.showFlag = true;
+            }
+          }
+        }
+      }
+      return "";
     }
   },
   mounted: function() {

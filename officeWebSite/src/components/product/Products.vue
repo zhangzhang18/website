@@ -3,9 +3,14 @@
     <Swiper></Swiper>
     <div class="content">
       <div class="title">
-        <p>产品服务</p>
+        <p>产品服务{{smallclasschange}}</p>
       </div>
-      <div v-for="(category, indexone) in list" :key="indexone" class="product-category">
+      <div
+        v-for="(category, indexone) in list"
+        :key="indexone"
+        class="product-category"
+        v-show="showIndex==-1||showIndex==indexone"
+      >
         <p>{{category.category}}</p>
         <div class="product-content">
           <div class="product-menu">
@@ -18,7 +23,7 @@
                       <li
                         v-for="(product, index) in products.product"
                         :key="index"
-                        @click="changeName(product.title)"
+                        @click="changeName(products.name,product.title)"
                       >{{product.title}}</li>
                     </ul>
                   </div>
@@ -49,11 +54,11 @@ export default {
   },
   data() {
     return {
-      smallclass: "",
-      productname: "",
-      flag: false,
+      smallclass: "", //小分类名
+      productname: "", //产品名称
+      flag: false, // 是否进入产品详情页
       list: json,
-      newProduct: [[]]
+      showIndex: -1 //控制大类展示
     };
   },
   methods: {
@@ -61,11 +66,32 @@ export default {
       this.smallclass = smallclass;
       this.flag = false;
     },
-    changeName: function(productname) {
+    changeName: function(smallclass, productname) {
+      this.smallclass = smallclass;
       this.productname = productname;
       this.flag = true;
     }
   },
+  computed: {
+    // 计算属性的 getter
+    smallclasschange: function() {
+      var smallclass = this.smallclass;
+      var list = this.list;
+      // 查询小分类数据哪个大类
+      for (let index = 0; index < list.length; index++) {
+        const category = list[index].products;
+        const bigIndex = index;
+        for (let sindex = 0; sindex < category.length; sindex++) {
+          const smallclassName = category[sindex].name;
+          if (smallclassName == smallclass) {
+            // 控制大类展示
+            this.showIndex = bigIndex;
+          }
+        }
+      }
+      return "";
+    }
+  }
 };
 </script>
 <style lang="less" scoped>
