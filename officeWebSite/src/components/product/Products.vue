@@ -23,7 +23,7 @@
                       <li
                         v-for="(product, index) in products.product"
                         :key="index"
-                        @click="changeName(products.name,product.title)"
+                        @click="changeName(indexone,products.name,product.title)"
                       >{{product.title}}</li>
                     </ul>
                   </div>
@@ -33,6 +33,7 @@
           </div>
           <ProductList
             :index="indexone+1"
+            :indexForProduct="indexParam"
             :smallclass="smallclass"
             :productname="productname"
             :flag="flag"
@@ -58,6 +59,7 @@ export default {
       productname: "", //产品名称
       flag: false, // 是否进入产品详情页
       list: json,
+      indexParam: -1,
       showIndex: -1 //控制大类展示
     };
   },
@@ -66,9 +68,10 @@ export default {
       this.smallclass = smallclass;
       this.flag = false;
     },
-    changeName: function(smallclass, productname) {
+    changeName: function(indexParam, smallclass, productname) {
       this.smallclass = smallclass;
       this.productname = productname;
+      this.indexParam = indexParam;
       this.flag = true;
     }
   },

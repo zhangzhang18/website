@@ -1,13 +1,13 @@
 <template>
   <div class="product-img">
-    {{smallclasschange}}
-    <div class="detail img" v-if="flag||showFlag"></div>
-    <div class="img" v-for="(product, i) in newProduct[index]" :key="i" v-else>
+    <div class="detail img" v-show="showDetailFlag">{{productDetail.title}}</div>
+    <div class="img" v-for="(product, i) in newProduct[newIndex]" :key="i" v-show="!showDetailFlag">
       <a>
         <img :src="product.mainImgUrl" />
         <p>{{product.title}}</p>
       </a>
     </div>
+    {{smallclasschange}}
   </div>
 </template>
 <script>
@@ -23,7 +23,7 @@ export default {
       type: String,
       default: ""
     },
-    name: {
+    productname: {
       type: String,
       default: ""
     },
@@ -37,7 +37,9 @@ export default {
       list: json,
       originList: json,
       newProduct: [[]],
-      showFlag:false
+      newIndex: 0,
+      showDetailFlag: false,
+      productDetail: {}
     };
   },
   computed: {
@@ -55,14 +57,35 @@ export default {
           //console.info("smallclass", JSON.stringify(category[sindex]));
           if (smallclassName == smallclass) {
             categoryIndex = index;
-            this.newProduct = [[]];
+            this.newProduct = [];
+            var smallclassProduct = category[sindex].product;
+            this.newProduct.push(smallclassProduct);
+
+            console.info(JSON.stringify(this.newProduct));
             // 若小分类下只有一个产品则进入详情页，否则展示小分类图片列表
-            if (category[sindex].product.length != 1) {
-              this.showFlag = false;
-              this.newProduct.push(category[sindex].product);
-            } else {
+            var flag = this.flag;
+            if (category[sindex].product.length == 1) {
               // 展示商品详情
-              this.showFlag = true;
+              this.showDetailFlag = true;
+              this.productDetail = smallclassProduct[0];
+              console.info("只有一个产品进入详情页");
+            } else if (flag) {
+              this.showDetailFlag = true;
+              for (
+                let pindex = 0;
+                pindex < smallclassProduct.length;
+                pindex++
+              ) {
+                const element = smallclassProduct[pindex];
+                if (element.title == this.productname) {
+                  this.productDetail = element;
+                  console.info("展示详情页");
+                }
+              }
+            } else {
+              this.showDetailFlag = false;
+              this.newIndex = 0;
+              console.info("展示列表图");
             }
           }
         }
@@ -71,6 +94,7 @@ export default {
     }
   },
   mounted: function() {
+    this.newIndex = this.index;
     var list = this.list;
     for (let index = 0; index < list.length; index++) {
       const category = list[index].products;
