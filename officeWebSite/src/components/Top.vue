@@ -14,7 +14,7 @@
           </div>
           <div class="contact-call">
             <strong>CALL US</strong>
-            <div class="contact-number">+86-18004113720</div>
+            <div class="contact-number">+86-18004113729</div>
           </div>
         </div>
         <div class="contact-content">
@@ -55,7 +55,7 @@
         margin: auto 0;
         display: inline-block;
         img {
-          width: 160px;
+          width: 170px;
         }
       }
     }
@@ -65,10 +65,14 @@
       .contact-content {
         display: flex;
         padding: 10px;
-        .contact-img img {
-          width: 32px;
-          height: 32px;
+        .contact-img {
+          margin: auto;
+          img {
+            width: 25px;
+            height: 25px;
+          }
         }
+
         .contact-call {
           color: #e27575;
           padding: 5px;

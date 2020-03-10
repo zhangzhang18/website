@@ -27,7 +27,7 @@
     <div class="contact-content">
       <p class="contact-title">Contact Us</p>
       <p class="contact-number">富乐达科技有限公司</p>
-      <p class="contact-number">Unit A1, 7/F, Cheuk Nang Plaza 250 Hennessy Road,Hong Kong</p>
+      <p class="contact-number">Unit D, 16/F, One Capital Place 18 Luard Road,Wanchai,Hong Kong</p>
       <p class="contact-number">Wechat:18004113729</p>
       <p class="contact-number">Contact:LEO / Call:+86-18004113729</p>
       <p class="contact-number">Email:fldtech@dingtalk.com</p>
