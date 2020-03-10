@@ -49,6 +49,7 @@
       display: flex;
       .logo-img {
         width: 80px;
+        height: 80px;
       }
       .company-name {
         margin: auto 0;
