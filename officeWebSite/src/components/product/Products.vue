@@ -3,7 +3,7 @@
     <Swiper></Swiper>
     <div class="content">
       <div class="title">
-        <p>产品服务{{smallclasschange}}</p>
+        <p>产品服务</p>
       </div>
       <div
         v-for="(category, indexone) in list"
@@ -17,13 +17,13 @@
             <ul class="menu">
               <li v-for="(products, index) in category.products" :key="index">
                 <div :class="index==0?'menu-category menu-first':'menu-category'">
-                  <span @click="changeClass(products.name)">{{products.name}}</span>
+                  <span @click="changeClass(products.name,indexone)">{{products.name}}</span>
                   <div v-if="products.product.length!=1">
                     <ul class="sub-menu">
                       <li
                         v-for="(product, index) in products.product"
                         :key="index"
-                        @click="changeName(indexone,products.name,product.title)"
+                        @click="goProjectDetail(indexone,products,product)"
                       >{{product.title}}</li>
                     </ul>
                   </div>
@@ -31,21 +31,30 @@
               </li>
             </ul>
           </div>
-          <ProductList
-            :index="indexone+1"
-            :smallclass="smallclass"
-            :productname="productname"
-            :flag="flag"
-            :listFlag="listFlag"
-            v-on:click.native="goProjectDetail(indexone)"
-            v-show="!flag"
-          ></ProductList>
-          <ProductDetail
-            :index="indexone+1"
-            :smallclass="smallclass"
-            :productname="productname"
-            v-show="flag"
-          ></ProductDetail>
+          <div class="product-img" v-show="!flag">
+            <div class="img" v-for="(product, i) in newProductImgs[indexone]" :key="i">
+              <a @click="goProjectDetail(indexone,'',product)">
+                <img :src="product.mainImgUrl" />
+                <p>{{product.title}}</p>
+              </a>
+            </div>
+          </div>
+          <div class="product-detail" v-show="flag">
+            <div class="detail-top">
+              <div class="main-img">
+                <img :src="productDetail.mainImgUrl" />
+              </div>
+              <div class="title">{{productDetail.title}}</div>
+            </div>
+            <div class="product-detail-desc">
+              <div class="info">
+                <p>商品信息</p>
+              </div>
+              <div v-for="(prop, propindex) in productDetail.propImgUrl" :key="propindex">
+                <img :src="prop.imgUrl" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -65,9 +74,24 @@ export default {
   },
   data() {
     return {
+      newProductImgs: [],
       listFlag: true,
-      smallclass: "", //小分类名
+      smallClass: "", //小分类名
       productname: "", //产品名称
+      productDetail: {
+        title: "",
+        mainImgUrl: "",
+        secondaryImgs: [
+          {
+            imgUrl: ""
+          }
+        ],
+        propImgUrl: [
+          {
+            imgUrl: ""
+          }
+        ]
+      },
       flag: false, // 是否进入产品详情页
       list: json,
       indexParam: -1, //点击单个图片进入详情页
@@ -75,43 +99,63 @@ export default {
     };
   },
   methods: {
-    goProjectDetail: function(index) {
+    goProjectDetail: function(index, prodects, productDetail) {
       // console.log(index);
       this.indexParam = index;
-    },
-    changeClass: function(smallclass) {
-      console.log("changeClass");
-      this.smallclass = smallclass;
-      this.flag = false;
-      this.listFlag = true;
-    },
-    changeName: function(indexParam, smallclass, productname) {
-      this.smallclass = smallclass;
-      this.productname = productname;
-      this.indexParam = indexParam;
       this.flag = true;
-      this.listFlag = false;
-    }
-  },
-  computed: {
-    // 计算属性的 getter
-    smallclasschange: function() {
-      var smallclass = this.smallclass;
-      var list = this.list;
-      // 查询小分类数据哪个大类
-      for (let index = 0; index < list.length; index++) {
-        const category = list[index].products;
-        const bigIndex = index;
-        for (let sindex = 0; sindex < category.length; sindex++) {
-          const smallclassName = category[sindex].name;
-          if (smallclassName == smallclass) {
-            // 控制大类展示
-            this.showIndex = bigIndex;
-          }
+      this.productDetail = productDetail;
+    },
+    changeClass: function(smallClass, index) {
+      // console.log("changeClass index:"+index);
+      this.smallClass = smallClass;
+      this.flag = false;
+      this.indexParam = index;
+      var products = this.changeClassContent(smallClass, index, true);
+      //   this.newProductImgs[index] = [...products];
+      this.$set(this.newProductImgs, index, products);
+    },
+    changeName: function(indexParam, smallClass, productname) {
+      this.smallClass = smallClass;
+      this.flag = true;
+    },
+    changeClassContent: function(smallClass, index, needShowDetail) {
+      //console.info(smallClass);
+      var categoryList = this.list;
+      const products = categoryList[index].products;
+      //console.info("categoryList", JSON.stringify(products));
+      var categoryAllList = [];
+      for (let pindex = 0; pindex < products.length; pindex++) {
+        const product = products[pindex].product;
+        if (smallClass !== "" && smallClass !== products[pindex].name) {
+          continue;
+        }
+        if (smallClass !== "" && product.length == 1) {
+          this.flag = true;
+          this.productDetail = products[pindex].product[0];
+        }
+        // console.log(pindex + "," + products[pindex].name + "," + smallClass);
+        //  console.info("product", JSON.stringify(product));
+        for (let i = 0; i < product.length; i++) {
+          categoryAllList.push(product[i]);
         }
       }
-      return "";
+      return categoryAllList;
     }
+  },
+  watch: {
+    // smallClass: function(newSmallClass, oldSmallClass) {
+    //   //console.log("smallclass change");
+    //   this.smallClass = newSmallClass;
+    // }
+  },
+  mounted: function() {
+    var categoryList = this.list;
+    for (let cindex = 0; cindex < categoryList.length; cindex++) {
+      const products = categoryList[cindex].products;
+      this.newProductImgs.push(this.changeClassContent("", cindex, false));
+    }
+
+    // console.info("newProducts", JSON.stringify(this.newProducts));
   }
 };
 </script>
@@ -176,6 +220,76 @@ a {
                   color: #4d4d4d;
                 }
               }
+            }
+          }
+        }
+        .product-img {
+          padding-right: 50px;
+          text-align: center;
+          margin-bottom: 50px;
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          .img {
+            width: 21%;
+            margin: 2% 2%;
+            height: 0;
+            padding-bottom: 21%;
+            position: relative;
+            margin-bottom: 50px;
+            img {
+              // padding: 0 20px;
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            p {
+              position: absolute;
+              bottom: -50px;
+              width: 100%;
+              text-align: center;
+              line-height: 50px;
+              height: 50px;
+              margin: 0;
+            }
+          }
+        }
+        .product-detail {
+          width: 100%;
+          .detail-top {
+            .main-img img {
+              width: 400px;
+              height: auto;
+              margin: 0px;
+            }
+          }
+          .info {
+            widows: 100%;
+            p {
+              float: left;
+              color: #535353;
+              padding: 0 18px;
+              margin: 0;
+              width: 80px;
+              border-top: #048bcd 3px solid;
+              z-index: 3;
+              background-color: #fff;
+              height: 52px;
+              line-height: 43px;
+            }
+          }
+          .product-detail-desc {
+            overflow: hidden;
+            border: #eeeeee 1px solid;
+            margin-top: 8px;
+            width: 100%;
+            img {
+              max-width: 100%;
+              height: auto;
             }
           }
         }
