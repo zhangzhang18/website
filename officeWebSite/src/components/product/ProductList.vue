@@ -1,8 +1,23 @@
 <template>
   <div class="product-img">
-    <div class="detail img" v-show="showDetailFlag">{{productDetail.title}}</div>
-    <div class="img" v-for="(product, i) in newProduct[newIndex]" :key="i" v-show="!showDetailFlag">
-      <a>
+    {{listFlag}}
+    <ProductDetail
+      :index="index"
+      :smallclass="smallclass"
+      :smallclassIndex="smallclassIndex"
+      :productIndex="productIndex"
+      :productname="productname"
+      :productDetail="productDetail"
+      v-show="showDetailFlag||flag"
+    ></ProductDetail>
+
+    <div
+      class="img"
+      v-for="(product, i) in newProduct[newIndex]"
+      :key="i"
+      v-show="!showDetailFlag||showList||listFlag"
+    >
+      <a @click="goProjectDetail(product.title)">
         <img :src="product.mainImgUrl" />
         <p>{{product.title}}</p>
       </a>
@@ -13,7 +28,11 @@
 <script>
 const json = require("/static/products/products.json");
 const images = require("/static/products/products");
+import ProductDetail from "./../product/ProductDetail.vue";
 export default {
+  components: {
+    ProductDetail
+  },
   props: {
     index: {
       type: Number,
@@ -22,6 +41,10 @@ export default {
     smallclass: {
       type: String,
       default: ""
+    },
+    listFlag: {
+      type: Boolean,
+      default: true
     },
     productname: {
       type: String,
@@ -36,17 +59,39 @@ export default {
     return {
       list: json,
       originList: json,
-      newProduct: [[]],
-      newIndex: 0,
-      showDetailFlag: false,
-      productDetail: {}
+      newProduct: [[]], //图片根据大类index展示
+      newIndex: 0, //newProduct重新复制后使用
+      showList: true,
+      showDetailFlag: false, //只有一个产品进入详情页
+      productDetail: {}, //要展示的产品
+      //跳转详情页参数
+      smallclassIndex: 0,
+      productIndex: 0,
+      productTitle: ""
     };
+  },
+  methods: {
+    goProjectDetail: function(productName) {
+      console.log(productName);
+      this.productTitle = productName;
+      this.showDetailFlag = true;
+      this.showList = false;
+    }
   },
   computed: {
     // 计算属性的 getter
     smallclasschange: function() {
+      console.log(
+        "smallclasschange" +
+          ",flag:" +
+          this.flag +
+          "，showList:" +
+          this.showList +
+          ",showDetailFlag:" +
+          this.showDetailFlag
+      );
       var smallclass = this.smallclass;
-      console.info(smallclass);
+      // console.info(smallclass);
       var list = this.list;
       // 查询小分类数据哪个大类
       var categoryIndex = 0;
@@ -60,17 +105,21 @@ export default {
             this.newProduct = [];
             var smallclassProduct = category[sindex].product;
             this.newProduct.push(smallclassProduct);
-
-            console.info(JSON.stringify(this.newProduct));
+            this.smallclassIndex = sindex;
             // 若小分类下只有一个产品则进入详情页，否则展示小分类图片列表
             var flag = this.flag;
             if (category[sindex].product.length == 1) {
               // 展示商品详情
               this.showDetailFlag = true;
+              this.showList = false;
               this.productDetail = smallclassProduct[0];
-              console.info("只有一个产品进入详情页");
+              this.productTitle = this.productDetail.title;
+              this.productIndex = 0;
+
+              // console.info("只有一个产品进入详情页");
             } else if (flag) {
               this.showDetailFlag = true;
+              this.showList = false;
               for (
                 let pindex = 0;
                 pindex < smallclassProduct.length;
@@ -79,13 +128,16 @@ export default {
                 const element = smallclassProduct[pindex];
                 if (element.title == this.productname) {
                   this.productDetail = element;
-                  console.info("展示详情页");
+                  this.productTitle = this.productDetail.title;
+                  this.productIndex = pindex;
+                  // console.info("展示详情页");
                 }
               }
             } else {
               this.showDetailFlag = false;
               this.newIndex = 0;
-              console.info("展示列表图");
+              this.showList = true;
+              //  console.info("展示列表图");
             }
           }
         }
@@ -94,6 +146,7 @@ export default {
     }
   },
   mounted: function() {
+    this.showList = !this.flag;
     this.newIndex = this.index;
     var list = this.list;
     for (let index = 0; index < list.length; index++) {

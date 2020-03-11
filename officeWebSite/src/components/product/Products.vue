@@ -9,7 +9,7 @@
         v-for="(category, indexone) in list"
         :key="indexone"
         class="product-category"
-        v-show="showIndex==-1||showIndex==indexone"
+        v-show="(showIndex==-1||indexone==showIndex)&&(indexParam==-1||indexone==indexParam)"
       >
         <p>{{category.category}}</p>
         <div class="product-content">
@@ -33,11 +33,19 @@
           </div>
           <ProductList
             :index="indexone+1"
-            :indexForProduct="indexParam"
             :smallclass="smallclass"
             :productname="productname"
             :flag="flag"
+            :listFlag="listFlag"
+            v-on:click.native="goProjectDetail(indexone)"
+            v-show="!flag"
           ></ProductList>
+          <ProductDetail
+            :index="indexone+1"
+            :smallclass="smallclass"
+            :productname="productname"
+            v-show="flag"
+          ></ProductDetail>
         </div>
       </div>
     </div>
@@ -48,31 +56,41 @@ const json = require("/static/products/products.json");
 const images = require("/static/products/products");
 import Swiper from "./../product/Swiper";
 import ProductList from "./../product/ProductList.vue";
+import ProductDetail from "./../product/ProductDetail.vue";
 export default {
   components: {
     Swiper,
-    ProductList
+    ProductList,
+    ProductDetail
   },
   data() {
     return {
+      listFlag: true,
       smallclass: "", //小分类名
       productname: "", //产品名称
       flag: false, // 是否进入产品详情页
       list: json,
-      indexParam: -1,
+      indexParam: -1, //点击单个图片进入详情页
       showIndex: -1 //控制大类展示
     };
   },
   methods: {
+    goProjectDetail: function(index) {
+      // console.log(index);
+      this.indexParam = index;
+    },
     changeClass: function(smallclass) {
+      console.log("changeClass");
       this.smallclass = smallclass;
       this.flag = false;
+      this.listFlag = true;
     },
     changeName: function(indexParam, smallclass, productname) {
       this.smallclass = smallclass;
       this.productname = productname;
       this.indexParam = indexParam;
       this.flag = true;
+      this.listFlag = false;
     }
   },
   computed: {
