@@ -92,6 +92,9 @@
                 >下一个：{{nextProductDetail.title}}</div>
               </div>
             </div>
+            <div class="btn">
+              <button class="return-btn" @click="reload()">返回</button>
+            </div>
           </div>
         </div>
       </div>
@@ -165,12 +168,14 @@ export default {
     };
   },
   methods: {
+    reload: function() {
+      this.flag = false; // 是否进入产品详情页
+      this.indexParam = -1; //点击单个图片进入详情页
+      this.showIndex = -1; //控制大类展示
+      this.initHtml();
+    },
     getIndex: function(imgUrl) {
-      console.log(imgUrl);
-
       this.showMainImgUrl = imgUrl;
-
-      console.info("productDetail", JSON.stringify(this.showMainImgUrl));
     },
     // goTop: function() {
     //   const that = this;
@@ -268,6 +273,14 @@ export default {
         }
       }
       return categoryAllList;
+    },
+    initHtml: function() {
+      var categoryList = this.list;
+      for (let cindex = 0; cindex < categoryList.length; cindex++) {
+        const products = categoryList[cindex].products;
+        this.newProductImgs.push(this.changeClassContent("", cindex, false));
+        this.pageProfucts.push(this.changeClassContent("", cindex, false));
+      }
     }
   },
   watch: {
@@ -277,12 +290,7 @@ export default {
     // }
   },
   mounted: function() {
-    var categoryList = this.list;
-    for (let cindex = 0; cindex < categoryList.length; cindex++) {
-      const products = categoryList[cindex].products;
-      this.newProductImgs.push(this.changeClassContent("", cindex, false));
-      this.pageProfucts.push(this.changeClassContent("", cindex, false));
-    }
+    this.initHtml();
     // console.info("newProducts", JSON.stringify(this.newProducts));
   }
 };
@@ -459,6 +467,24 @@ a {
             }
             .next {
               padding: 5px 10px;
+            }
+          }
+          .btn {
+            width: 100%;
+            padding: 10px;
+            position: relative;
+            display: inline-block;
+            z-index: 998;
+            margin: auto;
+            font-size: 16px;
+            .return-btn {
+              border-radius: 3px;
+              white-space: nowrap;
+              background-color: #3773db;
+              color: white;
+              border: none;
+              cursor: pointer;
+              padding: 16px;
             }
           }
         }
