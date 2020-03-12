@@ -21,7 +21,14 @@ export default {
     return {
       msg: "首页"
     };
-  }
+  },
+
+  // mounted() {
+  //   window.addEventListener("scroll", this.scrollToTop);
+  // },
+  // destroyed() {
+  //   window.removeEventListener("scroll", this.scrollToTop);
+  // }
 };
 </script>
 

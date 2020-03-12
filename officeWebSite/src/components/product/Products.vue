@@ -11,7 +11,7 @@
         class="product-category"
         v-show="(showIndex==-1||indexone==showIndex)&&(indexParam==-1||indexone==indexParam)"
       >
-        <p>{{category.category}}</p>
+        <h2 class="category-title">{{category.category}}</h2>
         <div class="product-content">
           <div class="product-menu">
             <ul class="menu">
@@ -23,7 +23,7 @@
                       <li
                         v-for="(product, index) in products.product"
                         :key="index"
-                        @click="goProjectDetail(indexone,products,product)"
+                        @click="goProjectDetail(indexone,product)"
                       >{{product.title}}</li>
                     </ul>
                   </div>
@@ -33,18 +33,43 @@
           </div>
           <div class="product-img" v-show="!flag">
             <div class="img" v-for="(product, i) in newProductImgs[indexone]" :key="i">
-              <a @click="goProjectDetail(indexone,'',product)">
+              <a @click="goProjectDetail(indexone,product)">
                 <img :src="product.mainImgUrl" />
                 <p>{{product.title}}</p>
+                <hr />
               </a>
             </div>
           </div>
           <div class="product-detail" v-show="flag">
             <div class="detail-top">
-              <div class="main-img">
-                <img :src="productDetail.mainImgUrl" />
+              <div class="img">
+                <div class="main-img">
+                  <div>
+                    <img :src="showMainImgUrl" />
+                  </div>
+                  <div class="product-title">
+                    <p>{{productDetail.title}}</p>
+                  </div>
+                </div>
+                <div class="little-img">
+                  <ul>
+                    <li>
+                      <img
+                        :src="productDetail.mainImgUrl"
+                        @click="getIndex(productDetail.mainImgUrl)"
+                        style="width: 50px; height: 50px"
+                      />
+                    </li>
+                    <li v-for="(secImg, seindex) in productDetail.secondaryImgs" :key="seindex">
+                      <img
+                        :src="secImg.imgUrl"
+                        @click="getIndex(secImg.imgUrl)"
+                        style="width: 50px; height: 50px"
+                      />
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div class="title">{{productDetail.title}}</div>
             </div>
             <div class="product-detail-desc">
               <div class="info">
@@ -52,6 +77,16 @@
               </div>
               <div v-for="(prop, propindex) in productDetail.propImgUrl" :key="propindex">
                 <img :src="prop.imgUrl" />
+              </div>
+              <div class="page">
+                <div
+                  class="pre"
+                  @click="goProjectDetail(indexone,preProductDetail)"
+                >上一个：{{preProductDetail.title}}</div>
+                <div
+                  class="next"
+                  @click="goProjectDetail(indexone,nextProductDetail)"
+                >下一个：{{nextProductDetail.title}}</div>
               </div>
             </div>
           </div>
@@ -64,21 +99,49 @@
 const json = require("/static/products/products.json");
 const images = require("/static/products/products");
 import Swiper from "./../product/Swiper";
-import ProductList from "./../product/ProductList.vue";
-import ProductDetail from "./../product/ProductDetail.vue";
 export default {
   components: {
-    Swiper,
-    ProductList,
-    ProductDetail
+    Swiper
   },
   data() {
     return {
+      showButton: false,
       newProductImgs: [],
+      pageProfucts: [],
       listFlag: true,
       smallClass: "", //小分类名
       productname: "", //产品名称
+      showMainImgUrl: "",
       productDetail: {
+        title: "",
+        mainImgUrl: "",
+
+        secondaryImgs: [
+          {
+            imgUrl: ""
+          }
+        ],
+        propImgUrl: [
+          {
+            imgUrl: ""
+          }
+        ]
+      },
+      preProductDetail: {
+        title: "",
+        mainImgUrl: "",
+        secondaryImgs: [
+          {
+            imgUrl: ""
+          }
+        ],
+        propImgUrl: [
+          {
+            imgUrl: ""
+          }
+        ]
+      },
+      nextProductDetail: {
         title: "",
         mainImgUrl: "",
         secondaryImgs: [
@@ -99,11 +162,72 @@ export default {
     };
   },
   methods: {
-    goProjectDetail: function(index, prodects, productDetail) {
-      // console.log(index);
-      this.indexParam = index;
-      this.flag = true;
-      this.productDetail = productDetail;
+    getIndex: function(imgUrl) {
+      console.log(imgUrl);
+
+      this.showMainImgUrl = imgUrl;
+
+      console.info("productDetail", JSON.stringify(this.showMainImgUrl));
+    },
+    // goTop: function() {
+    //   const that = this;
+    //   let timer = setInterval(() => {
+    //     let ispeed = Math.floor(-that.scrollTop / 5);
+    //     document.documentElement.scrollTop = document.body.scrollTop =
+    //       that.scrollTop + ispeed;
+    //     if (that.scrollTop === 0) {
+    //       clearInterval(timer);
+    //     }
+    //   }, 16);
+    // },
+
+    // // 为了计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
+    // scrollToTop() {
+    //   const that = this;
+    //   let scrollTop =
+    //     window.pageYOffset ||
+    //     document.documentElement.scrollTop ||
+    //     document.body.scrollTop;
+    //   that.scrollTop = scrollTop;
+    //   if (that.scrollTop > 60) {
+    //     that.btnFlag = true;
+    //   } else {
+    //     that.btnFlag = false;
+    //   }
+    // },
+    goProjectDetail: function(index, productDetail) {
+      if (productDetail.title != "无") {
+        //console.info("productDetail", JSON.stringify(productDetail));
+        this.indexParam = index;
+        this.flag = true;
+        this.productDetail = productDetail;
+        this.showMainImgUrl = productDetail.mainImgUrl;
+
+        this.getPageProduct(index, productDetail.title);
+      }
+    },
+    getPageProduct: function(index, productName) {
+      var categoryList = this.pageProfucts[index];
+      //console.info("categoryList", JSON.stringify(categoryList));
+      for (let i = 0; i < categoryList.length; i++) {
+        const product = categoryList[i];
+        if (product.title == productName) {
+          console.log(" index:" + i);
+
+          if (i == 0) {
+            this.preProductDetail.title = "无";
+          } else {
+            var pre = categoryList[i - 1];
+            this.preProductDetail = pre;
+          }
+          if (i == categoryList.length - 1) {
+            this.nextProductDetail.title = "无";
+          } else {
+            var next = categoryList[i + 1];
+            this.nextProductDetail = next;
+          }
+        }
+      }
     },
     changeClass: function(smallClass, index) {
       // console.log("changeClass index:"+index);
@@ -153,8 +277,8 @@ export default {
     for (let cindex = 0; cindex < categoryList.length; cindex++) {
       const products = categoryList[cindex].products;
       this.newProductImgs.push(this.changeClassContent("", cindex, false));
+      this.pageProfucts.push(this.changeClassContent("", cindex, false));
     }
-
     // console.info("newProducts", JSON.stringify(this.newProducts));
   }
 };
@@ -173,6 +297,8 @@ a {
       font-size: 30px;
     }
     .product-category {
+      .category-title {
+      }
       .product-content {
         padding: 0 50px;
         display: flex;
@@ -261,10 +387,36 @@ a {
         .product-detail {
           width: 100%;
           .detail-top {
-            .main-img img {
-              width: 400px;
-              height: auto;
-              margin: 0px;
+            .img {
+              .main-img {
+                display: flex;
+                width: 100%;
+                img {
+                  width: 400px;
+                  height: 400px;
+                }
+                .product-title {
+                    width: 400px;
+                  p {
+                    height: 200px;
+                    border-bottom: #eeeeee 1px solid;
+                    color: #666666;
+                    margin-left: 50px;
+                    font-size: 22px;
+                    line-height: 140%;
+                    line-height: 140%;
+                  }
+                }
+              }
+              .little-img {
+                ul {
+                  padding: 0;
+                  list-style-type: none;
+                  display: flex;
+                  li {
+                  }
+                }
+              }
             }
           }
           .info {
@@ -292,8 +444,27 @@ a {
               height: auto;
             }
           }
+          .page {
+            color: #444;
+            font-size: 12px;
+            text-align: left;
+            width: 100%;
+            .pre {
+              padding: 5px 10px;
+            }
+            .next {
+              padding: 5px 10px;
+            }
+          }
         }
       }
+    }
+  }
+}
+@media screen and(max-device-width:1200px) {
+  .product {
+    .content {
+      padding: 10px;
     }
   }
 }

@@ -45,7 +45,7 @@
     padding: 10px 160px;
     .top-company {
       margin: auto 0;
-      width: 50%;
+      width: 60%;
       display: flex;
       .logo-img {
         width: 80px;
@@ -60,7 +60,7 @@
       }
     }
     .top-contact {
-      width: 49%;
+      width: 42%;
       display: flex;
       .contact-content {
         display: flex;
@@ -82,24 +82,25 @@
           .contact-number {
             color: rgb(67, 67, 67);
             white-space: nowrap;
+            font-size: 14px;
           }
         }
       }
     }
     .top-language {
-      width: 8%;
-      padding: 10px;
       position: relative;
       display: inline-block;
       z-index: 998;
+      margin: auto;
+      font-size: 14px;
       .change-language-btn {
         white-space: nowrap;
         background-color: #3773db;
         color: white;
-        padding: 16px;
-        font-size: 16px;
+
         border: none;
         cursor: pointer;
+        height: 32px;
       }
       .change-language-content {
         display: none;
@@ -109,7 +110,7 @@
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         a {
           color: black;
-          padding: 12px 16px;
+          padding: 6px 8px;
           text-decoration: none;
           display: block;
         }
