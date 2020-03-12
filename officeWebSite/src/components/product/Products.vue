@@ -302,7 +302,7 @@ a {
     }
     .product-category {
       .category-title {
-           font-size: 22px;
+        font-size: 22px;
       }
       .product-content {
         padding: 0 50px;
@@ -424,7 +424,8 @@ a {
             }
           }
           .info {
-            widows: 100%;
+            width: 100%;
+            height: 52px;
             p {
               float: left;
               color: #535353;
