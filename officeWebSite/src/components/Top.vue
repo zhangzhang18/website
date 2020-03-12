@@ -88,6 +88,7 @@
       }
     }
     .top-language {
+      padding: 10px;
       position: relative;
       display: inline-block;
       z-index: 998;
@@ -99,7 +100,7 @@
         color: white;
         border: none;
         cursor: pointer;
-        height: 32px;
+        padding: 16px;
       }
       .change-language-content {
         display: none;
@@ -110,7 +111,7 @@
         a {
           font-size: 14px;
           color: black;
-          padding: 6px 8px;
+          padding: 12px 16px;
           text-decoration: none;
           display: block;
         }
