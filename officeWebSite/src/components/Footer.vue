@@ -3,24 +3,24 @@
     <div class="menu">
       <ul>
         <li>
-          <a href="#">
-            <router-link to="/">主页</router-link>
-          </a>
+          <router-link to="/">
+            <a href="#">主页</a>
+          </router-link>
         </li>
         <li>
-          <a href="#product">
-            <router-link to="/products">产品</router-link>
-          </a>
+          <router-link to="/products/">
+            <a href="#product">产品</a>
+          </router-link>
         </li>
         <li>
-          <a href="#news">
-            <router-link to="/news">新闻</router-link>
-          </a>
+          <router-link to="/news">
+            <a href="#news">新闻</a>
+          </router-link>
         </li>
         <li>
-          <a href="#contact">
-            <router-link to="/contact">联系</router-link>
-          </a>
+          <router-link to="/contact">
+            <a href="#contact">联系</a>
+          </router-link>
         </li>
       </ul>
     </div>

@@ -72,7 +72,6 @@
             height: 32px;
           }
         }
-
         .contact-call {
           color: #e27575;
           padding: 5px;

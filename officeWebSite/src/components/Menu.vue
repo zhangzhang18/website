@@ -3,24 +3,35 @@
     <div class="menu">
       <ul>
         <li>
-          <a href="#">
-            <router-link to="/">主页</router-link>
-          </a>
+          <router-link to="/">
+            <a href="#">主页</a>
+          </router-link>
+        </li>
+        <li class="change">
+          <router-link to="/products/-1">
+            <a href="#products/-1" class="change-btn">产品</a>
+          </router-link>
+          <div class="change-category">
+            <router-link to="/products/0">
+              <a href="#">半导体产品</a>
+            </router-link>
+            <router-link to="/products/1">
+              <a href="#">太阳能产品</a>
+            </router-link>
+            <router-link to="/products/2">
+              <a href="#">氮化硅陶瓷产品</a>
+            </router-link>
+          </div>
         </li>
         <li>
-          <a href="#product">
-            <router-link to="/products">产品</router-link>
-          </a>
+          <router-link to="/news">
+            <a href="#news">新闻</a>
+          </router-link>
         </li>
         <li>
-          <a href="#news">
-            <router-link to="/news">新闻</router-link>
-          </a>
-        </li>
-        <li>
-          <a href="#contact">
-            <router-link to="/contact">联系</router-link>
-          </a>
+          <router-link to="/contact">
+            <a href="#contact">联系</a>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -40,11 +51,12 @@
       margin: 0;
       li {
         display: inline-block;
+        position: relative;
         line-height: 80px;
         height: 80px;
         width: 20%;
         font-size: 20px;
-        &:hover{
+        &:hover {
           color: white;
           height: 100%;
           background: #3773bd;
@@ -55,6 +67,33 @@
           display: inline-block;
           color: white;
           text-decoration: none;
+        }
+      }
+      .change {
+        .change-category {
+          z-index: 998;
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          width: 100%;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          a {
+            font-size: 14px;
+            color: black;
+            width: 100%;
+            text-decoration: none;
+            display: block;
+          }
+          a:hover {
+            background-color: #f1f1f1;
+          }
+        }
+      }
+      .change:hover {
+        background-color: #3773bd;
+        .change-category {
+          display: block;
         }
       }
     }

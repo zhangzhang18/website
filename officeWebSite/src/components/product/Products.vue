@@ -284,14 +284,15 @@ export default {
     }
   },
   watch: {
-    // smallClass: function(newSmallClass, oldSmallClass) {
-    //   //console.log("smallclass change");
-    //   this.smallClass = newSmallClass;
-    // }
+    $route: function(to, from) {
+      this.showIndex = this.$route.params.index;
+      this.indexParam = this.$route.params.index;
+      this.flag = false;
+      console.log(this.$route.params.index);
+    }
   },
   mounted: function() {
     this.initHtml();
-    // console.info("newProducts", JSON.stringify(this.newProducts));
   }
 };
 </script>
