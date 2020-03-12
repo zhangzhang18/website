@@ -79,7 +79,7 @@
           width: 100%;
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           a {
-            font-size: 14px;
+            font-size: 16px;
             color: black;
             width: 100%;
             text-decoration: none;
