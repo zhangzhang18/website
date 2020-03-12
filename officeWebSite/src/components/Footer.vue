@@ -8,8 +8,8 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/products/">
-            <a href="#product">产品</a>
+          <router-link to="/products/-1">
+            <a href="#products/-1">产品</a>
           </router-link>
         </li>
         <li>
