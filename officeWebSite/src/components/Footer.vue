@@ -57,10 +57,16 @@ p {
         width: 20%;
         display: inline-block;
         a {
+          width: 100%;
           color: white;
           text-decoration: none;
           display: inline-block;
           line-height: 240%;
+        }
+        &:hover {
+          color: white;
+          height: 100%;
+          background: #3773bd;
         }
       }
     }
