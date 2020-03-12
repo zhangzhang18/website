@@ -10,7 +10,7 @@
       <div class="top-contact">
         <div class="contact-content">
           <div class="contact-img">
-            <img src="@/assets/image/contact/phone.png" />
+            <img src="@/assets/image/home/phone.png" />
           </div>
           <div class="contact-call">
             <strong>CALL US</strong>
@@ -19,20 +19,20 @@
         </div>
         <div class="contact-content">
           <div class="contact-img">
-            <img src="@/assets/image/contact/email.png" />
+            <img src="@/assets/image/home/email.png" />
           </div>
           <div class="contact-call">
             <strong>EMAIL US</strong>
             <div class="contact-number">fldtech@dingtalk.com</div>
           </div>
         </div>
-      </div>
-      <div class="top-language">
-        <button class="change-language-btn">语言</button>
-        <div class="change-language-content">
-          <a href="#">中文</a>
-          <a href="#">English</a>
-          <a href="#">Japanese</a>
+        <div class="top-language">
+          <button class="change-language-btn">语言</button>
+          <div class="change-language-content">
+            <a href="#">中文</a>
+            <a href="#">English</a>
+            <a href="#">Japanese</a>
+          </div>
         </div>
       </div>
     </div>
@@ -97,7 +97,6 @@
         white-space: nowrap;
         background-color: #3773db;
         color: white;
-
         border: none;
         cursor: pointer;
         height: 32px;
@@ -109,6 +108,7 @@
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         a {
+          font-size: 14px;
           color: black;
           padding: 6px 8px;
           text-decoration: none;
