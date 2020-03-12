@@ -11,13 +11,16 @@
         class="product-category"
         v-show="(showIndex==-1||indexone==showIndex)&&(indexParam==-1||indexone==indexParam)"
       >
-        <h2 class="category-title">{{category.category}}</h2>
+        <p class="category-title">{{category.category}}</p>
         <div class="product-content">
           <div class="product-menu">
             <ul class="menu">
               <li v-for="(products, index) in category.products" :key="index">
                 <div :class="index==0?'menu-category menu-first':'menu-category'">
-                  <span @click="changeClass(products.name,indexone)">{{products.name}}</span>
+                  <div
+                    class="product-class"
+                    @click="changeClass(products.name,indexone)"
+                  >{{products.name}}</div>
                   <div v-if="products.product.length!=1">
                     <ul class="sub-menu">
                       <li
@@ -218,13 +221,13 @@ export default {
             this.preProductDetail.title = "无";
           } else {
             var pre = categoryList[i - 1];
-            this.preProductDetail = pre;
+            this.preProductDetail = JSON.parse(JSON.stringify(pre));
           }
           if (i == categoryList.length - 1) {
             this.nextProductDetail.title = "无";
           } else {
             var next = categoryList[i + 1];
-            this.nextProductDetail = next;
+            this.nextProductDetail = JSON.parse(JSON.stringify(next));
           }
         }
       }
@@ -256,6 +259,7 @@ export default {
         if (smallClass !== "" && product.length == 1) {
           this.flag = true;
           this.productDetail = products[pindex].product[0];
+          this.showMainImgUrl = products[pindex].product[0].mainImgUrl;
         }
         // console.log(pindex + "," + products[pindex].name + "," + smallClass);
         //  console.info("product", JSON.stringify(product));
@@ -298,6 +302,7 @@ a {
     }
     .product-category {
       .category-title {
+           font-size: 22px;
       }
       .product-content {
         padding: 0 50px;
@@ -320,11 +325,10 @@ a {
               display: block;
               position: relative;
               border-bottom: 1px solid #ffffff;
-              span {
+              .product-class {
                 padding: 10px;
                 color: #666;
                 font-size: 14px;
-                line-height: 270%;
               }
             }
             li.open {
@@ -396,7 +400,7 @@ a {
                   height: 400px;
                 }
                 .product-title {
-                    width: 400px;
+                  width: 400px;
                   p {
                     height: 200px;
                     border-bottom: #eeeeee 1px solid;
