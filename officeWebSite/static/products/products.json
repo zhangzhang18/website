@@ -8,6 +8,7 @@
                 "product": [
                     {
                         "title": "1~3 inch wafer",
+                        "desc":"",
                         "mainImgUrl": "/static/products/semiconductor/one-three-inch/main.png",
                         "secondaryImgs": [
                             {
@@ -24,7 +25,13 @@
                             {
                                 "imgUrl": "/static/products/semiconductor/one-three-inch/prop-01.png"
                             }
+                        ],
+                        "detailImgUrl":[
+                            {
+                                "imgUrl": "/static/products/semiconductor/one-three-inch/prop-01.png"
+                            }
                         ]
+
                     },
                     {
                         "title": "4~6 inch wafer",

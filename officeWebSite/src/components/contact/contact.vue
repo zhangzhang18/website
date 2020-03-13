@@ -3,52 +3,143 @@
     <div class="contact-img">
       <img src="@/assets/image/contact/contact.jpg" />
     </div>
+
+    <ul>
+      <li v-for="{error,i} in errors" :key="i">{{ error }}</li>
+    </ul>
+
     <div>
-      <form class="form">
+      <div class="form">
         <h1>
           Contact Form
           <span>Please fill all the texts in the fields.</span>
         </h1>
         <div class="company-name form-input">
-          <label for="company-name">Company name:</label>
-          <input name="company-name" type="text" />
+          <label for="companyName">Company name:</label>
+          <input name="companyName" v-model="companyName" type="text" />
         </div>
         <div class="country form-input">
           <label for="country">Country/Region:</label>
-          <input name="country" type="text" />
+          <input name="country" v-model="country" type="text" />
         </div>
         <div class="name form-input">
           <label for="name">Name:</label>
-          <input name="name" type="text" />
+          <input name="name" v-model="name" type="text" />
         </div>
         <div class="mobile form-input">
           <label for="mobile">Mobile:</label>
-          <input name="mobile" type="text" />
+          <input name="mobile" v-model="mobile" type="text" />
         </div>
         <div class="email form-input">
           <label for="email">Email:</label>
-          <input name="email" type="text" />
+          <input name="email" v-model="email" type="text" />
         </div>
         <div class="email-confirm form-input">
-          <label for="mail-confirm">Email Confirm:</label>
-          <input name="mail-confirm" type="text" />
+          <label for="mailConfirm">Email Confirm:</label>
+          <input name="mailConfirm" v-model="mailConfirm" type="text" />
         </div>
         <div class="message form-input">
           <label for="message">message:</label>
-          <textarea id="message" name="message"></textarea>
+          <textarea id="message" v-model="message" name="message"></textarea>
         </div>
         <div class="button form-input">
-          <button type="submit">Send</button>
+          <button class="submit" @click="submit()">Submit</button>
           <button type="reset" class="reset">Reset</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   data() {
-    return {};
+    return {
+      errors: "",
+      companyName: "",
+      country: "",
+      name: "",
+      mobile: "",
+      email: "",
+      mailConfirm: "",
+      message: ""
+    };
+  },
+  methods: {
+    submit: function() {
+      if (this.checkForm()) {
+        let data = {
+          companyName: this.companyName,
+          country: this.country,
+          name: this.name,
+          mobile: this.mobile,
+          email: this.email,
+          message: this.message
+        }
+        axios.post('http://47.52.233.25:8080/message/add',{
+          companyName: this.companyName,
+          country: this.country,
+          name: this.name,
+          mobile: this.mobile,
+          email: this.email,
+          message: this.message
+        })
+        .then(res => {
+          if (res.status == 200) {
+            alert('ntm success')
+          }
+        })
+      }
+    },
+    checkForm: function() {
+      this.errors = "";
+      if (!this.companyName) {
+        this.errors = "CompanyName required.";
+        alert(this.errors);
+        return false;
+      }
+      if (!this.country) {
+        this.errors = "Country required.";
+        alert(this.errors);
+        return false;
+      }
+      if (!this.name) {
+        this.errors = "Name required.";
+        alert(this.errors);
+        return false;
+      }
+      if (!this.mobile) {
+        this.errors = "Mobile required.";
+        alert(this.errors);
+        return false;
+      }
+      if (!this.email) {
+        this.errors = "Email required.";
+        alert(this.errors);
+        return false;
+      }
+      if (!this.validEmail(this.email)) {
+        this.errors = "Email check error.";
+        alert(this.errors);
+        return false;
+      }
+
+      if (this.email != this.mailConfirm) {
+        this.errors = "mailConfirm.";
+        alert(this.errors);
+        return false;
+      }
+      if (!this.message) {
+        this.errors = "Message required.";
+        alert(this.errors);
+        return false;
+      }
+      return true;
+    },
+    validEmail: function(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
   }
 };
 </script>

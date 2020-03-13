@@ -64,11 +64,7 @@
                       />
                     </li>
                     <li v-for="(secImg, seindex) in productDetail.secondaryImgs" :key="seindex">
-                      <img
-                        :src="secImg.imgUrl"
-                        @click="getIndex(secImg.imgUrl)"
-                        style="width: 50px; height: 50px"
-                      />
+                      <img class="sec-img" :src="secImg.imgUrl" @click="getIndex(secImg.imgUrl)" />
                     </li>
                   </ul>
                 </div>
@@ -78,9 +74,12 @@
               <div class="info">
                 <p>商品信息</p>
               </div>
-              <div v-for="(prop, propindex) in productDetail.propImgUrl" :key="propindex">
-                <img :src="prop.imgUrl" />
+              <div class="desc-img">
+                <div v-for="(prop, propindex) in productDetail.propImgUrl" :key="propindex">
+                  <img :src="prop.imgUrl" />
+                </div>
               </div>
+
               <div class="page">
                 <div
                   class="pre"
@@ -102,9 +101,10 @@
   </div>
 </template>
 <script>
-const json = require("/static/products/products.json");
+// const json = require("/static/products/products.json");
 const images = require("/static/products/products");
 import Swiper from "./../product/Swiper";
+import axios from 'axios';
 export default {
   components: {
     Swiper
@@ -162,7 +162,7 @@ export default {
         ]
       },
       flag: false, // 是否进入产品详情页
-      list: json,
+      list: [],
       indexParam: -1, //点击单个图片进入详情页
       showIndex: -1 //控制大类展示
     };
@@ -292,7 +292,11 @@ export default {
     }
   },
   mounted: function() {
-    this.initHtml();
+    axios.get('http://47.52.233.25:8080/product/get').then(res => {
+      this.list = res.data.result
+      this.initHtml();
+    })
+    
   }
 };
 </script>
@@ -407,6 +411,7 @@ a {
                 img {
                   width: 400px;
                   height: 400px;
+                  //object-fit: cover;
                 }
                 .product-title {
                   width: 400px;
@@ -427,6 +432,12 @@ a {
                   list-style-type: none;
                   display: flex;
                   li {
+                    border: #eeeeee 1px solid;
+                    img {
+                      width: 50px;
+                      height: 50px;
+                      // object-fit: cover;
+                    }
                   }
                 }
               }
@@ -453,9 +464,17 @@ a {
             border: #eeeeee 1px solid;
             margin-top: 8px;
             width: 100%;
-            img {
-              max-width: 100%;
-              height: auto;
+
+            .desc-img {
+              width: 100%;
+            //   display: flex;
+              div {
+                width: 100%;
+                img {
+                  width: 98%;
+                  height: auto;
+                }
+              }
             }
           }
           .page {
