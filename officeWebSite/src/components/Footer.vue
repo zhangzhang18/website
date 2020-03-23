@@ -8,9 +8,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/products/-1">
-            <a href="#products/-1">产品</a>
-          </router-link>
+          <a @click="changeRouter">产品</a>
         </li>
         <li>
           <router-link to="/news">
@@ -39,6 +37,19 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    changeRouter: function() {
+      if (this.$route.name == "Products") {
+        location.reload();
+      } else {
+        this.$router.push({ path: "/products/-1" });
+      }
+    }
+  }
+};
+</script>
 <style lang="less" scoped>
 p {
   padding: 0;

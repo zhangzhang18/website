@@ -8,9 +8,7 @@
           </router-link>
         </li>
         <li class="change">
-          <router-link to="/products/-1">
-            <a href="#products/-1" class="change-btn">产品</a>
-          </router-link>
+          <a @click="changeRouter" class="change-btn">产品</a>
           <div class="change-category">
             <router-link to="/products/0">
               <a href="#">半导体产品</a>
@@ -37,6 +35,22 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    changeRouter: function() {
+      console.log(this.$route.name);
+      if (this.$route.name == "Products") {
+        console.log('aaa')
+        location.reload;
+      } else {
+        console.log('bbb')
+        this.$router.push({ path: "/products/-1" });
+      }
+    }
+  }
+};
+</script>
 <style lang="less" scoped>
 .header {
   background-color: rgb(34, 34, 34);

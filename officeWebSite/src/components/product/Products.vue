@@ -9,7 +9,7 @@
         v-for="(category, indexone) in list"
         :key="indexone"
         class="product-category"
-        v-show="(showIndex==-1||indexone==showIndex)&&(indexParam==-1||indexone==indexParam)"
+        v-show="(showIndex<=0||indexone==showIndex)&&(indexParam==-1||indexone==indexParam)"
       >
         <p class="category-title">{{category.category}}</p>
         <div class="product-content">
@@ -288,6 +288,7 @@ export default {
       this.showIndex = this.$route.params.index;
       this.indexParam = this.$route.params.index;
       this.flag = false;
+      location.reload;
       console.log(this.$route.params.index);
     }
   },

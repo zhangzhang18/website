@@ -44,14 +44,14 @@
         </div>
         <div class="button form-input">
           <button class="submit" @click="submit()">Submit</button>
-          <button type="reset" class="reset">Reset</button>
+          <button type="reset" @click="reset()" class="reset">Reset</button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
     return {
@@ -66,6 +66,15 @@ export default {
     };
   },
   methods: {
+    reset: function() {
+      this.companyName = "";
+      this.country = "";
+      this.name = "";
+      this.mobile = "";
+      this.email = "";
+      this.mailConfirm = "";
+      this.message = "";
+    },
     submit: function() {
       if (this.checkForm()) {
         let data = {
@@ -75,20 +84,21 @@ export default {
           mobile: this.mobile,
           email: this.email,
           message: this.message
-        }
-        axios.post('http://47.52.233.25:8080/message/add',{
-          companyName: this.companyName,
-          country: this.country,
-          name: this.name,
-          mobile: this.mobile,
-          email: this.email,
-          message: this.message
-        })
-        .then(res => {
-          if (res.status == 200) {
-            alert('ntm success')
-          }
-        })
+        };
+        axios
+          .post("http://47.52.233.25:8080/message/add", {
+            companyName: this.companyName,
+            country: this.country,
+            name: this.name,
+            mobile: this.mobile,
+            email: this.email,
+            message: this.message
+          })
+          .then(res => {
+            if (res.status == 200) {
+              alert("ntm success");
+            }
+          });
       }
     },
     checkForm: function() {
