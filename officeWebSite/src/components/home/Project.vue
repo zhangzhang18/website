@@ -151,6 +151,8 @@ export default {
               color: #9f9f9f;
               padding-right: 5px;
               font-size: 12px;
+              display: inline-block;
+              width: 120px;
             }
           }
           .link-title {
