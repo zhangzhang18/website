@@ -32,9 +32,12 @@ export default {
     };
   },
   mounted: function() {
-    axios.get("http://47.52.233.25:8080/news/get").then(res => {
-      this.newsList = res.data.result;
-    });
+    var language = "Chinese";
+    axios
+      .get("http://47.52.233.25:8080/news/get?language=" + language)
+      .then(res => {
+        this.newsList = res.data.result;
+      });
   }
 };
 </script>

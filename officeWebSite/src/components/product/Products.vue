@@ -104,7 +104,7 @@
 // const json = require("/static/products/products.json");
 const images = require("/static/products/products");
 import Swiper from "./../product/Swiper";
-import axios from 'axios';
+import axios from "axios";
 export default {
   components: {
     Swiper
@@ -293,11 +293,13 @@ export default {
     }
   },
   mounted: function() {
-    axios.get('http://47.52.233.25:8080/product/get').then(res => {
-      this.list = res.data.result
-      this.initHtml();
-    })
-    
+    var language = "Chinese";
+    axios
+      .get("http://47.52.233.25:8080/product/get?language=" + language)
+      .then(res => {
+        this.list = res.data.result;
+        this.initHtml();
+      });
   }
 };
 </script>
@@ -468,7 +470,7 @@ a {
 
             .desc-img {
               width: 100%;
-            //   display: flex;
+              //   display: flex;
               div {
                 width: 100%;
                 img {

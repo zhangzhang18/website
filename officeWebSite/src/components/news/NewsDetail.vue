@@ -13,10 +13,9 @@
           <span>作者：{{news.from}}</span>
           <span>发布时间：{{news.releaseTime}}</span>
         </div>
-        <br><br>
-        <div class="article-content">
-          {{news.content}}
-        </div>
+        <br />
+        <br />
+        <div class="article-content">{{news.content}}</div>
       </div>
     </div>
   </div>
@@ -30,9 +29,10 @@ export default {
     };
   },
   mounted: function() {
+    var language = "Chinese";
     axios
       .get(
-        `http://47.52.233.25:8080/news/get/single?id=${this.$route.params.id}`
+        `http://47.52.233.25:8080/news/get/single?id=${this.$route.params.id}&language=${language}`
       )
       .then(res => {
         this.news = res.data.result;
