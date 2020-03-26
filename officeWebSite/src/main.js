@@ -3,15 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueI18n from 'vue-i18n'
-
+import i18n from './local/index'
 
 Vue.config.productionTip = false
-Vue.use(VueI18n)
+
+window.i18n = i18n
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  i18n,
   components: { App },
   template: '<App/>'
 })

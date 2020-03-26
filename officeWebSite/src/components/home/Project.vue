@@ -2,32 +2,32 @@
   <div class="projects">
     <div class="advantage">
       <div class="title">
-        <p>业务优势</p>
+        <p>{{$t("message.home.project.advantage")}}</p>
       </div>
       <div class="content">
         <div class="detail">
           <a href target="_blank" rel="about">
             <img src="@/assets/image/home/global.png" />
-            <p>全球合作</p>
+            <p>{{$t("message.home.project.global")}}</p>
           </a>
         </div>
         <div class="detail">
           <a href target="_blank" rel="about">
             <img src="@/assets/image/home/customize.png" />
-            <p>定制加工</p>
+            <p>{{$t("message.home.project.customize")}}</p>
           </a>
         </div>
         <div class="detail">
           <a href target="_blank" rel="about">
             <img src="@/assets/image/home/profession.png" />
-            <p>专业服务</p>
+            <p>{{$t("message.home.project.profession")}}</p>
           </a>
         </div>
       </div>
     </div>
     <div class="news">
       <div class="title">
-        <p>新闻中心</p>
+        <p>{{$t("message.news.center")}}</p>
       </div>
       <div class="content">
         <div class="news-img">

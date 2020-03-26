@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <div class="title">
-        <p>新闻中心</p>
+        <p>{{$t("message.news.center")}}</p>
       </div>
       <div class="article-list">
         <ul>

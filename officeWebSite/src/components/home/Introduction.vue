@@ -1,17 +1,17 @@
 <template>
   <div class="introduct">
     <div class="title">
-      <p>关于我们</p>
+      <p>{{$t("message.home.introduction.aboutUs")}}</p>
     </div>
     <div class="introduction">
       <div class="introduction-content">
         <div class="introduction-title">
-          <p>企业介绍</p>
+          <p>{{$t("message.home.introduction.companyIntr")}}</p>
         </div>
         <div class="introduction-text">
-          <p>富乐达科技有限公司以「客户第一」、「品質第一」为经营理念，我们为合作伙伴提供高品质产品服务，为成为半导体行业高价值服务商而不断努力。</p>
-          <p>我们与全球知名半导体厂商合作提供全面的硅片（Silicon Wafer）解决方案，从调试级硅片（Dummy Wafer）,测试级硅片（Test Wafer），到产品级硅片（Prime Wafer），以及特殊硅片氧化硅片（Oxide）、氮化硅片(Si3N4)、镀铝硅片、镀铜硅片、SOI Wafer、MEMS Glass、定制超厚、超平硅片等，尺寸覆盖50mm-300mm,并可提供半导体硅片单面/双面抛光、减薄、切割、MEMS等加工和定制服务。</p>
-          <p>半导体领域以外我公司还可以提供太阳能以及氮化硅领域的产品。常规产品、特殊规格产品以及定制产品本公司都可以为您提供满意服务。</p>
+          <p>{{$t("message.home.introduction.intrContent[0].text")}}</p>
+          <p>{{$t("message.home.introduction.intrContent[1].text")}}</p>
+          <p>{{$t("message.home.introduction.intrContent[2].text")}}</p>
         </div>
       </div>
       <div class="introduction-img">
@@ -26,7 +26,6 @@
   background-color: #f6f6f6;
   .title p {
     color: #3773dc;
-    font-family: 微软雅黑;
     font-size: 30px;
     text-align: center;
   }
@@ -36,7 +35,6 @@
     text-align: left;
     .introduction-content {
       padding: 10px;
-      font-family: 微软雅黑;
       .introduction-title {
         color: rgb(67, 67, 67);
         line-height: 42px;

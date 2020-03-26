@@ -17,12 +17,6 @@ export default {
     Introduction,
     Project
   },
-  data() {
-    return {
-      msg: "首页"
-    };
-  },
-
   // mounted() {
   //   window.addEventListener("scroll", this.scrollToTop);
   // },

@@ -27,17 +27,28 @@
           </div>
         </div>
         <div class="top-language">
-          <button class="change-language-btn">语言</button>
+          <button class="change-language-btn">{{$t("message.home.language")}}</button>
           <div class="change-language-content">
-            <a href="#">中文</a>
-            <a href="#">English</a>
-            <a href="#">Japanese</a>
+            <a @click="changeLan('zh')" href="#">中文</a>
+            <a @click="changeLan('en')" href="#">English</a>
+            <a @click="changeLan('ja')" href="#">Japanese</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    changeLan: function(lan) {
+      window.localStorage.setItem("localeLanguage", lan);
+      location.reload();
+    }
+  }
+};
+</script>
+
 <style lang="less" scoped>
 .top {
   .top-content {

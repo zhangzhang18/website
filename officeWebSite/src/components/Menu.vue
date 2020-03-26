@@ -4,31 +4,31 @@
       <ul>
         <li>
           <router-link to="/">
-            <a href="#">主页</a>
+            <a href="#">{{$t("message.home.title")}}</a>
           </router-link>
         </li>
         <li class="change">
-          <a @click="changeRouter" class="change-btn">产品</a>
+          <a @click="changeRouter" class="change-btn">{{$t("message.product.title")}}</a>
           <div class="change-category">
             <router-link to="/products/0">
-              <a href="#">半导体产品</a>
+              <a href="#">{{$t("message.product.category[0].title")}}</a>
             </router-link>
             <router-link to="/products/1">
-              <a href="#">太阳能产品</a>
+              <a href="#">{{$t("message.product.category[1].title")}}</a>
             </router-link>
             <router-link to="/products/2">
-              <a href="#">氮化硅陶瓷产品</a>
+              <a href="#">{{$t("message.product.category[2].title")}}</a>
             </router-link>
           </div>
         </li>
         <li>
           <router-link to="/news">
-            <a href="#news">新闻</a>
+            <a href="#news">{{$t("message.news.title")}}</a>
           </router-link>
         </li>
         <li>
           <router-link to="/contact">
-            <a href="#contact">联系</a>
+            <a href="#contact">{{$t("message.contact.title")}}</a>
           </router-link>
         </li>
       </ul>
@@ -41,10 +41,10 @@ export default {
     changeRouter: function() {
       console.log(this.$route.name);
       if (this.$route.name == "Products") {
-        console.log('aaa')
+        console.log("aaa");
         location.reload;
       } else {
-        console.log('bbb')
+        console.log("bbb");
         this.$router.push({ path: "/products/-1" });
       }
     }

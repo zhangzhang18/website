@@ -5,13 +5,13 @@
     </div>
     <div class="content">
       <div class="title">
-        <p>新闻中心</p>
+        <p>{{$t("message.news.center")}}</p>
       </div>
       <div class="article-detail">
         <div class="article-title">{{news.title}}</div>
         <div class="article-source">
-          <span>作者：{{news.from}}</span>
-          <span>发布时间：{{news.releaseTime}}</span>
+          <span>{{$t("message.news.article.author")}}{{news.from}}</span>
+          <span>{{$t("message.news.article.releaseTime")}}{{news.releaseTime}}</span>
         </div>
         <br />
         <br />
@@ -47,7 +47,6 @@ export default {
     padding: 10px 160px;
     .title p {
       color: #3773dc;
-      font-family: 微软雅黑;
       font-size: 30px;
     }
     .article-detail {

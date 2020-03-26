@@ -4,27 +4,27 @@
       <ul>
         <li>
           <router-link to="/">
-            <a href="#">主页</a>
+            <a href="#">{{$t("message.home.title")}}</a>
           </router-link>
         </li>
         <li>
-          <a @click="changeRouter">产品</a>
+          <a @click="changeRouter">{{$t("message.product.title")}}</a>
         </li>
         <li>
           <router-link to="/news">
-            <a href="#news">新闻</a>
+            <a href="#news">{{$t("message.news.title")}}</a>
           </router-link>
         </li>
         <li>
           <router-link to="/contact">
-            <a href="#contact">联系</a>
+            <a href="#contact">{{$t("message.contact.title")}}</a>
           </router-link>
         </li>
       </ul>
     </div>
     <div class="contact-content">
       <p class="contact-title">Contact Us</p>
-      <p class="contact-number">富乐达科技有限公司</p>
+      <p class="contact-number">{{$t("message.contact.companyName")}}</p>
       <p class="contact-number">Unit D, 16/F, One Capital Place 18 Luard Road,Wanchai,Hong Kong</p>
       <p class="contact-number">Wechat:18004113729</p>
       <p class="contact-number">Contact:LEO / Call:+86-18004113729</p>
@@ -83,7 +83,6 @@ p {
     }
   }
   .contact-content {
-    font-family: 微软雅黑;
     .contact-title {
       color: rgb(204, 204, 204);
       line-height: 240%;

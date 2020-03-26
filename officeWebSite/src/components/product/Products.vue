@@ -3,7 +3,7 @@
     <Swiper></Swiper>
     <div class="content">
       <div class="title">
-        <p>产品服务</p>
+        <p>{{$t("message.product.service")}}</p>
       </div>
       <div
         v-for="(category, indexone) in list"
@@ -72,7 +72,7 @@
             </div>
             <div class="product-detail-desc">
               <div class="info">
-                <p>商品信息</p>
+                <p>{{$t("message.product.productInfo")}}</p>
               </div>
               <div class="desc-img">
                 <div v-for="(prop, propindex) in productDetail.propImgUrl" :key="propindex">
@@ -84,15 +84,15 @@
                 <div
                   class="pre"
                   @click="goProjectDetail(indexone,preProductDetail)"
-                >上一个：{{preProductDetail.title}}</div>
+                >{{$t("message.product.pre")}}{{preProductDetail.title}}</div>
                 <div
                   class="next"
                   @click="goProjectDetail(indexone,nextProductDetail)"
-                >下一个：{{nextProductDetail.title}}</div>
+                >{{$t("message.product.next")}}{{nextProductDetail.title}}</div>
               </div>
             </div>
             <div class="btn">
-              <button class="return-btn" @click="reload()">返回</button>
+              <button class="return-btn" @click="reload()">{{$t("message.product.return")}}</button>
             </div>
           </div>
         </div>
@@ -223,13 +223,13 @@ export default {
           console.log(" index:" + i);
 
           if (i == 0) {
-            this.preProductDetail.title = "无";
+            this.preProductDetail.title = "...";
           } else {
             var pre = categoryList[i - 1];
             this.preProductDetail = JSON.parse(JSON.stringify(pre));
           }
           if (i == categoryList.length - 1) {
-            this.nextProductDetail.title = "无";
+            this.nextProductDetail.title = "...";
           } else {
             var next = categoryList[i + 1];
             this.nextProductDetail = JSON.parse(JSON.stringify(next));

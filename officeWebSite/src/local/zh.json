@@ -1,0 +1,98 @@
+{
+    "message": {
+        "home": {
+            "title": "主页",
+            "language": "语言",
+            "introduction": {
+                "aboutUs": "关于我们",
+                "companyIntr": "企业介绍",
+                "intrContent": [
+                    {
+                        "text": "富乐达科技有限公司以「客户第一」、「品質第一」为经营理念，我们为合作伙伴提供高品质产品服务，为成为半导体行业高价值服务商而不断努力。"
+                    },
+                    {
+                        "text": "我们与全球知名半导体厂商合作提供全面的硅片（Silicon Wafer）解决方案，从调试级硅片（Dummy Wafer）,测试级硅片（Test Wafer），到产品级硅片（Prime Wafer），以及特殊硅片氧化硅片（Oxide）、氮化硅片(Si3N4)、镀铝硅片、镀铜硅片、SOI Wafer、MEMS Glass、定制超厚、超平硅片等，尺寸覆盖50mm-300mm,并可提供半导体硅片单面/双面抛光、减薄、切割、MEMS等加工和定制服务。"
+                    },
+                    {
+                        "text": "半导体领域以外我公司还可以提供太阳能以及氮化硅领域的产品。常规产品、特殊规格产品以及定制产品本公司都可以为您提供满意服务。"
+                    }
+                ]
+            },
+            "project": {
+                "advantage": "业务优势",
+                "global": "全球合作",
+                "customize": "定制加工",
+                "profession": "专业服务"
+            },
+            "swiper": [
+                {
+                    "list": [
+                        {
+                            "text": "高品质半导体产品服务商"
+                        },
+                        {
+                            "text": "致力于全面的半导体硅片解决方案"
+                        },
+                        {
+                            "text": "一站式"
+                        },
+                        {
+                            "text": "全球化"
+                        }
+                    ]
+                },
+                {
+                    "list": [
+                        {
+                            "text": "拥有太阳能以及氮化硅陶瓷等领域高品质合作伙伴"
+                        },
+                        {
+                            "text": "提供现货产品，定制加工服务"
+                        },
+                        {
+                            "text": "高效"
+                        },
+                        {
+                            "text": "专业"
+                        },
+                        {
+                            "text": "便利"
+                        }
+                    ]
+                }
+            ]
+        },
+        "product": {
+            "title": "产品",
+            "service":"产品服务",
+            "productInfo":"商品信息",
+            "pre":"上一个：",
+            "next":"下一个：",
+            "return":"返回",
+            "category": [
+                {
+                    "title": "半导体产品"
+                },
+                {
+                    "title": "太阳能产品"
+                },
+                {
+                    "title": "氮化硅陶瓷产品"
+                }
+            ]
+        },
+        "news": {
+            "title": "新闻",
+            "center": "新闻中心",
+            "article":{
+                "author":"作者：",
+                "releaseTime":"发布时间："
+            
+            }
+        },
+        "contact": {
+            "title": "联系",
+            "companyName": "富乐达科技有限公司"
+        }
+    }
+}

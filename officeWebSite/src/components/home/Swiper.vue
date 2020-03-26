@@ -7,17 +7,17 @@
           <img class="banner-img" src="@/assets/image/banner/banner-01.png" />
           <div class="banner-text">
             <p>
-              <strong>高品质半导体产品服务商</strong>
+              <strong>{{$t("message.home.swiper[0].list[0].text")}}</strong>
             </p>
             <p>
-              <strong>致力于全面的半导体硅片解决方案</strong>
+              <strong>{{$t("message.home.swiper[0].list[1].text")}}</strong>
             </p>
             <p>
               <span>
-                <strong>一站式</strong>
+                <strong>{{$t("message.home.swiper[0].list[2].text")}}</strong>
               </span>
               <span>
-                <strong>全球化</strong>
+                <strong>{{$t("message.home.swiper[0].list[3].text")}}</strong>
               </span>
             </p>
           </div>
@@ -28,20 +28,20 @@
           <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
           <div class="banner-text" v-show="flag">
             <p>
-              <strong>拥有太阳能以及氮化硅陶瓷等领域高品质合作伙伴</strong>
+              <strong>{{$t("message.home.swiper[1].list[0].text")}}</strong>
             </p>
             <p>
-              <strong>提供现货产品，定制加工服务</strong>
+              <strong>{{$t("message.home.swiper[1].list[1].text")}}</strong>
             </p>
             <p>
               <span>
-                <strong>高效</strong>
+                <strong>{{$t("message.home.swiper[1].list[2].text")}}</strong>
               </span>
               <span>
-                <strong>专业</strong>
+                <strong>{{$t("message.home.swiper[1].list[3].text")}}</strong>
               </span>
               <span>
-                <strong>便利</strong>
+                <strong>{{$t("message.home.swiper[1].list[4].text")}}</strong>
               </span>
             </p>
           </div>
@@ -152,8 +152,6 @@ a {
     height: 600px;
     display: block;
     z-index: 10;
-  }
-  .banner-img-box {
   }
   .banner-text {
     vertical-align: middle;
