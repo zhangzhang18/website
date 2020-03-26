@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Contact from '@/components/contact/Contact'
 import Products from '@/components/product/Products'
 import News from '@/components/news/News'
+import NewsDetail from '@/components/news/NewsDetail'
 import vueSwiper from 'vue-awesome-swiper'//根据package.json中的value导入
 import 'swiper/dist/css/swiper.css'//引入样式
 Vue.config.productionTip = false
@@ -33,6 +34,12 @@ export default new Router({
       path: '/products/:index',
       name: 'Products',
       component: Products
+    }
+    ,
+    {
+      path: '/newsDetail/:id',
+      name: 'NewsDetail',
+      component: NewsDetail
     }
   ]
 })

@@ -35,26 +35,21 @@
         </div>
         <div class="news-article-list">
           <ul>
-            <li>
-              <p class="link-title">
-                <a class="“article”" href>新闻链接跳转</a>
-              </p>
-            </li>
-            <li>
-              <p class="time">
-                <span>2019-12-31</span>
-              </p>
-              <p class="link-title">
-                <a class="“article”" href>新闻链接跳转</a>
-              </p>
-            </li>
-            <li>
-              <p class="time">
-                <span>2019-12-31</span>
-              </p>
-              <p class="link-title">
-                <a class="“article”" href>新闻链接跳转</a>
-              </p>
+            <li v-for="(news, i) in newsList" :key="i">
+              <div v-if="i==0">
+                <p class="link-title">
+                  <router-link class="article" :to="{path:'/newsDetail/'+news.id}">{{news.title}}</router-link>
+                </p>
+              </div>
+              <div v-else>
+                <p class="time">
+                  <span>{{news.releaseTime}}</span>
+                  <router-link
+                    class="link-title article"
+                    :to="{path:'/newsDetail/'+news.id}"
+                  >{{news.title}}</router-link>
+                </p>
+              </div>
             </li>
           </ul>
         </div>
@@ -62,6 +57,21 @@
     </div>
   </div>
 </template>
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      newsList: []
+    };
+  },
+  mounted: function() {
+    axios.get("http://47.52.233.25:8080/news/get").then(res => {
+      this.newsList = res.data.result;
+    });
+  }
+};
+</script>
 <style lang="less" scoped>
 .projects {
   text-align: center;
@@ -123,8 +133,8 @@
               color: #3773dc;
             }
             padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
           }
+          border-bottom: 1px solid #eee;
         }
         p {
           margin: 0;
@@ -141,10 +151,8 @@
             }
           }
           .link-title {
-            a {
-              font-size: 14px;
-              color: #777676;
-            }
+            font-size: 14px;
+            color: #777676;
           }
         }
       }

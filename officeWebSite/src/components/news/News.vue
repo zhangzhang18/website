@@ -9,26 +9,14 @@
       </div>
       <div class="article-list">
         <ul>
-          <li>
+          <li v-for="(news, i) in newsList" :key="i">
             <div class="news-time">
-              <span class="day">03</span>
-              <span class="date">2020-03</span>
+              <span class="day">{{news.releaseTime.substring(8,10)}}</span>
+              <span class="date">{{news.releaseTime.substring(0,7)}}</span>
             </div>
-            <div class="news-title">新闻标题</div>
-          </li>
-          <li>
-            <div class="news-time">
-              <span class="day">03</span>
-              <span class="date">2020-03</span>
-            </div>
-            <div class="news-title">新闻标题</div>
-          </li>
-          <li>
-            <div class="news-time">
-              <span class="day">03</span>
-              <span class="date">2020-03</span>
-            </div>
-            <div class="news-title">新闻标题</div>
+            <router-link :to="{path:'/newsDetail/'+news.id}">
+              <div class="news-title">{{news.title}}</div>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -36,6 +24,19 @@
   </div>
 </template>
 <script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      newsList: []
+    };
+  },
+  mounted: function() {
+    axios.get("http://47.52.233.25:8080/news/get").then(res => {
+      this.newsList = res.data.result;
+    });
+  }
+};
 </script>
 <style lang="less" scoped>
 .news {
@@ -73,7 +74,7 @@
               display: block;
             }
           }
-          .news-title{
+          .news-title {
             padding: 0 10px;
           }
         }
