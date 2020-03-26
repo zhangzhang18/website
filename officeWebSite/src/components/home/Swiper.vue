@@ -5,7 +5,7 @@
       <swiper-slide>
         <div class="banner-img-box">
           <img class="banner-img" src="@/assets/image/banner/banner-01.png" />
-          <div class="banner-text">
+          <div class="banner-text" v-show="flag">
             <p>
               <strong>高品质半导体产品服务商</strong>
             </p>
@@ -26,7 +26,7 @@
       <swiper-slide>
         <div class="banner-img-box">
           <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
-          <div class="banner-text">
+          <div class="banner-text" v-show="flag">
             <p>
               <strong>拥有太阳能以及氮化硅陶瓷等领域高品质合作伙伴</strong>
             </p>
@@ -66,6 +66,7 @@ export default {
   },
   data() {
     return {
+      flag: false,
       swiperOption: {
         notNextTick: true,
         //循环
@@ -116,6 +117,7 @@ export default {
     //可以使用swiper这个对象去使用swiper官网中的那些方法
     console.log("this is current swiper instance object", this.swiper);
     // this.swiper.slideTo(0, 0, false);
+    this.flag = true;
   }
 };
 </script>
@@ -151,7 +153,12 @@ a {
     display: block;
     z-index: 10;
   }
+  .banner-img-box {
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
+  }
   .banner-text {
+    transform: translate3d(0, 0, 0);
     vertical-align: middle;
     position: absolute;
     top: 0;
