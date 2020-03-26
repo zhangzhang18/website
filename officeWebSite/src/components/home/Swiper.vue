@@ -154,11 +154,8 @@ a {
     z-index: 10;
   }
   .banner-img-box {
-    transform: translate3d(0, 0, 0);
-    overflow: hidden;
   }
   .banner-text {
-    transform: translate3d(0, 0, 0);
     vertical-align: middle;
     position: absolute;
     top: 0;
