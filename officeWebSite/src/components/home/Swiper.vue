@@ -5,7 +5,7 @@
       <swiper-slide>
         <div class="banner-img-box">
           <img class="banner-img" src="@/assets/image/banner/banner-01.png" />
-          <div class="banner-text" v-show="flag">
+          <div class="banner-text">
             <p>
               <strong>高品质半导体产品服务商</strong>
             </p>
