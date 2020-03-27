@@ -74,12 +74,7 @@
               <div class="info">
                 <p>{{$t("message.product.productInfo")}}</p>
               </div>
-              <div class="desc-img">
-                <div v-for="(prop, propindex) in productDetail.propImgUrl" :key="propindex">
-                  <img :src="prop.imgUrl" />
-                </div>
-              </div>
-
+              <div class="desc-img" v-html="productDetail.content"></div>
               <div class="page">
                 <div
                   class="pre"
@@ -120,6 +115,7 @@ export default {
       showMainImgUrl: "",
       productDetail: {
         title: "",
+        content: "",
         mainImgUrl: "",
 
         secondaryImgs: [
@@ -290,10 +286,35 @@ export default {
       this.flag = false;
       location.reload;
       console.log(this.$route.params.index);
+    },
+    '$i18n.locale': function() {
+      var language = this.$i18n.locale;
+      if (language == "en") {
+        language = "English";
+      } else if (language == "ja") {
+        language = "Japanese";
+      } else {
+        language = "Chinese";
+      }
+      console.log(this.$i18n.locale);
+      axios
+        .get("http://47.52.233.25:8080/product/get?language=" + language)
+        .then(res => {
+          this.list = res.data.result;
+          this.initHtml();
+        });
     }
   },
   mounted: function() {
-    var language = "Chinese";
+    var language = this.$i18n.locale;
+    if (language == "en") {
+      language = "English";
+    } else if (language == "ja") {
+      language = "Japanese";
+    } else {
+      language = "Chinese";
+    }
+    console.log(this.$i18n.locale);
     axios
       .get("http://47.52.233.25:8080/product/get?language=" + language)
       .then(res => {

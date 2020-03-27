@@ -42,8 +42,9 @@
 export default {
   methods: {
     changeLan: function(lan) {
-      window.localStorage.setItem("localeLanguage", lan);
-      location.reload();
+      this.$i18n.locale = lan;
+      // window.localStorage.setItem("localeLanguage", lan);
+      // location.reload();
     }
   }
 };

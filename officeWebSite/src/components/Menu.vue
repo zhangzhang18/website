@@ -41,10 +41,8 @@ export default {
     changeRouter: function() {
       console.log(this.$route.name);
       if (this.$route.name == "Products") {
-        console.log("aaa");
         location.reload;
       } else {
-        console.log("bbb");
         this.$router.push({ path: "/products/-1" });
       }
     }

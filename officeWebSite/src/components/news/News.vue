@@ -31,6 +31,24 @@ export default {
       newsList: []
     };
   },
+  watch: {
+    "$i18n.locale": function() {
+      var language = this.$i18n.locale;
+      if (language == "en") {
+        language = "English";
+      } else if (language == "ja") {
+        language = "Japanese";
+      } else {
+        language = "Chinese";
+      }
+      console.log(this.$i18n.locale);
+      axios
+        .get("http://47.52.233.25:8080/news/get?language=" + language)
+        .then(res => {
+          this.newsList = res.data.result;
+        });
+    }
+  },
   mounted: function() {
     var language = "Chinese";
     axios
