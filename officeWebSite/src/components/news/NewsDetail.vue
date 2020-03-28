@@ -10,8 +10,6 @@
       <div class="article-detail">
         <div class="article-title">{{news.title}}</div>
         <div class="article-source">
-          <span>{{$t("message.news.article.author")}}{{news.from}}</span>
-          <span>{{$t("message.news.article.releaseTime")}}{{news.releaseTime}}</span>
         </div>
         <br />
         <br />

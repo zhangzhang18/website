@@ -21,6 +21,15 @@
         </ul>
       </div>
     </div>
+    <div class="page">
+      <a-pagination
+        size="small"
+        :total="allcount"
+        @change="onChange"
+        :pageSize="pageSize"
+        :defaultCurrent="1"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -28,7 +37,9 @@ import axios from "axios";
 export default {
   data() {
     return {
-      newsList: []
+      newsList: [],
+      pageSize: 5,
+      allcount: 0
     };
   },
   watch: {
@@ -41,20 +52,62 @@ export default {
       } else {
         language = "Chinese";
       }
-      console.log(this.$i18n.locale);
       axios
-        .get("http://47.52.233.25:8080/news/get?language=" + language)
+        .get(
+          "http://47.52.233.25:8080/news/get?language=" +
+            language +
+            "&pageNum=1&pageSize=5"
+        )
         .then(res => {
           this.newsList = res.data.result;
         });
+      axios
+        .get("http://47.52.233.25:8080/news/get/count?language=" + language)
+        .then(res => {
+          this.allcount = res.data.result;
+        });
+    }
+  },
+  methods: {
+    onChange(current, pageSize) {
+      var language = this.$i18n.locale;
+      if (language == "en") {
+        language = "English";
+      } else if (language == "ja") {
+        language = "Japanese";
+      } else {
+        language = "Chinese";
+      }
+      axios
+        .get(
+          "http://47.52.233.25:8080/news/get?language=" +
+            language +
+            "&pageNum=" +
+            current +
+            "&pageSize=" +
+            pageSize
+        )
+        .then(res => {
+          this.newsList = res.data.result;
+        });
+      console.log(current, pageSize);
     }
   },
   mounted: function() {
     var language = "Chinese";
     axios
-      .get("http://47.52.233.25:8080/news/get?language=" + language)
+      .get(
+        "http://47.52.233.25:8080/news/get?language=" +
+          language +
+          "&pageNum=1&pageSize=5"
+      )
       .then(res => {
         this.newsList = res.data.result;
+      });
+    axios
+      .get("http://47.52.233.25:8080/news/get/count?language=" + language)
+      .then(res => {
+        this.allcount = res.data.result;
       });
   }
 };
@@ -62,6 +115,9 @@ export default {
 <style lang="less" scoped>
 .news {
   text-align: center;
+  .page {
+    margin: 10px;
+  }
   .content {
     padding: 10px 160px;
     .title p {

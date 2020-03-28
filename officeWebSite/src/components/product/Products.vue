@@ -96,8 +96,6 @@
   </div>
 </template>
 <script>
-// const json = require("/static/products/products.json");
-const images = require("/static/products/products");
 import Swiper from "./../product/Swiper";
 import axios from "axios";
 export default {
@@ -213,22 +211,24 @@ export default {
     getPageProduct: function(index, productName) {
       var categoryList = this.pageProfucts[index];
       //console.info("categoryList", JSON.stringify(categoryList));
-      for (let i = 0; i < categoryList.length; i++) {
-        const product = categoryList[i];
-        if (product.title == productName) {
-          console.log(" index:" + i);
+      if (categoryList != null) {
+        for (let i = 0; i < categoryList.length; i++) {
+          const product = categoryList[i];
+          if (product.title == productName) {
+            console.log(" index:" + i);
 
-          if (i == 0) {
-            this.preProductDetail.title = "...";
-          } else {
-            var pre = categoryList[i - 1];
-            this.preProductDetail = JSON.parse(JSON.stringify(pre));
-          }
-          if (i == categoryList.length - 1) {
-            this.nextProductDetail.title = "...";
-          } else {
-            var next = categoryList[i + 1];
-            this.nextProductDetail = JSON.parse(JSON.stringify(next));
+            if (i == 0) {
+              this.preProductDetail.title = "...";
+            } else {
+              var pre = categoryList[i - 1];
+              this.preProductDetail = JSON.parse(JSON.stringify(pre));
+            }
+            if (i == categoryList.length - 1) {
+              this.nextProductDetail.title = "...";
+            } else {
+              var next = categoryList[i + 1];
+              this.nextProductDetail = JSON.parse(JSON.stringify(next));
+            }
           }
         }
       }
@@ -272,10 +272,17 @@ export default {
     },
     initHtml: function() {
       var categoryList = this.list;
-      for (let cindex = 0; cindex < categoryList.length; cindex++) {
-        const products = categoryList[cindex].products;
-        this.newProductImgs.push(this.changeClassContent("", cindex, false));
-        this.pageProfucts.push(this.changeClassContent("", cindex, false));
+      console.log(categoryList);
+      if (
+        categoryList != undefined &&
+        categoryList != null &&
+        categoryList.length > 0
+      ) {
+        for (let cindex = 0; cindex < categoryList.length; cindex++) {
+          const products = categoryList[cindex].products;
+          this.newProductImgs.push(this.changeClassContent("", cindex, false));
+          this.pageProfucts.push(this.changeClassContent("", cindex, false));
+        }
       }
     }
   },
@@ -287,7 +294,8 @@ export default {
       location.reload;
       console.log(this.$route.params.index);
     },
-    '$i18n.locale': function() {
+    "$i18n.locale": function() {
+      console.log("");
       var language = this.$i18n.locale;
       if (language == "en") {
         language = "English";
@@ -303,6 +311,7 @@ export default {
           this.list = res.data.result;
           this.initHtml();
         });
+      location.reload;
     }
   },
   mounted: function() {
@@ -433,8 +442,8 @@ a {
                 display: flex;
                 width: 100%;
                 img {
-                  width: 400px;
-                  height: 400px;
+                  width: 270px;
+                  height: 270px;
                   //object-fit: cover;
                 }
                 .product-title {
@@ -443,10 +452,11 @@ a {
                     height: 200px;
                     border-bottom: #eeeeee 1px solid;
                     color: #666666;
-                    margin-left: 50px;
+                    margin: 0 50px;
                     font-size: 22px;
                     line-height: 140%;
                     line-height: 140%;
+                    text-align: left;
                   }
                 }
               }

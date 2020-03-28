@@ -9,6 +9,7 @@ const LOCALE_KEY = 'localeLanguage'
 const locales = {
   zh: require('./zh.json'),
   en: require('./en.json'),
+  ja: require('./ja.json'),
 }
 
 const i18n = new VueI18n({

@@ -4,7 +4,7 @@
       <div class="top-company">
         <img class="logo-img" src="@/assets/image/logo.png" />
         <div class="company-name">
-          <img src="@/assets/image/home/name-01.png" />
+          <img :src="nameImg"/>
         </div>
       </div>
       <div class="top-contact">
@@ -40,9 +40,16 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      nameImg:"/static/name/name-zh.png"
+    };
+  },
+
   methods: {
     changeLan: function(lan) {
       this.$i18n.locale = lan;
+      this.nameImg="/static/name/name-"+lan+".png";
       // window.localStorage.setItem("localeLanguage", lan);
       // location.reload();
     }
@@ -67,7 +74,7 @@ export default {
         margin: auto 0;
         display: inline-block;
         img {
-          width: 170px;
+          max-width: 60%;
         }
       }
     }

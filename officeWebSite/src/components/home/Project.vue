@@ -35,21 +35,19 @@
         </div>
         <div class="news-article-list">
           <ul>
-            <li v-for="(news, i) in newsList" :key="i">
-              <div v-if="i==0">
-                <p class="link-title">
-                  <router-link class="article" :to="{path:'/newsDetail/'+news.id}">{{news.title}}</router-link>
-                </p>
-              </div>
-              <div v-else>
-                <p class="time">
-                  <span>{{news.releaseTime}}</span>
-                  <router-link
-                    class="link-title article"
-                    :to="{path:'/newsDetail/'+news.id}"
-                  >{{news.title}}</router-link>
-                </p>
-              </div>
+            <li>
+              <p class="link-title">
+                <router-link to="/news">{{$t("message.news.center")}}</router-link>
+              </p>
+            </li>
+            <li v-for="(news, i) in newsList" :key="i" v-if="i<3">
+              <p class="time">
+                <span>{{news.releaseTime}}</span>
+                <router-link
+                  class="link-title article"
+                  :to="{path:'/newsDetail/'+news.id}"
+                >{{news.title}}</router-link>
+              </p>
             </li>
           </ul>
         </div>
@@ -62,7 +60,8 @@ import axios from "axios";
 export default {
   data() {
     return {
-      newsList: []
+      newsList: [],
+      count: 0
     };
   },
   watch: {
@@ -93,7 +92,11 @@ export default {
       language = "Chinese";
     }
     axios
-      .get("http://47.52.233.25:8080/news/get?language=" + language)
+      .get(
+        "http://47.52.233.25:8080/news/get?language=" +
+          language +
+          "&pageNum=1&pageSize=5"
+      )
       .then(res => {
         this.newsList = res.data.result;
       });
@@ -177,7 +180,7 @@ export default {
               padding-right: 5px;
               font-size: 12px;
               display: inline-block;
-              width: 120px;
+              width: 140px;
             }
           }
           .link-title {
