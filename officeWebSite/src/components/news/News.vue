@@ -94,7 +94,14 @@ export default {
     }
   },
   mounted: function() {
-    var language = "Chinese";
+    var language = this.$i18n.locale;
+    if (language == "en") {
+      language = "English";
+    } else if (language == "ja") {
+      language = "Japanese";
+    } else {
+      language = "Chinese";
+    }
     axios
       .get(
         "http://47.52.233.25:8080/news/get?language=" +
