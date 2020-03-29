@@ -74,7 +74,7 @@ export default {
           message: this.message
         };
         axios
-          .post("http://47.52.233.25:8080/message/add", {
+          .post("https://www.fuledatech.com:8080/message/add", {
             companyName: this.companyName,
             name: this.name,
             mobile: this.mobile,

@@ -54,7 +54,7 @@ export default {
       }
       axios
         .get(
-          "http://47.52.233.25:8080/news/get?language=" +
+          "https://www.fuledatech.com:8080/news/get?language=" +
             language +
             "&pageNum=1&pageSize=5"
         )
@@ -62,7 +62,7 @@ export default {
           this.newsList = res.data.result;
         });
       axios
-        .get("http://47.52.233.25:8080/news/get/count?language=" + language)
+        .get("https://www.fuledatech.com:8080/news/get/count?language=" + language)
         .then(res => {
           this.allcount = res.data.result;
         });
@@ -80,7 +80,7 @@ export default {
       }
       axios
         .get(
-          "http://47.52.233.25:8080/news/get?language=" +
+          "https://www.fuledatech.com:8080/news/get?language=" +
             language +
             "&pageNum=" +
             current +
@@ -104,7 +104,7 @@ export default {
     }
     axios
       .get(
-        "http://47.52.233.25:8080/news/get?language=" +
+        "https://www.fuledatech.com:8080/news/get?language=" +
           language +
           "&pageNum=1&pageSize=5"
       )
@@ -112,7 +112,7 @@ export default {
         this.newsList = res.data.result;
       });
     axios
-      .get("http://47.52.233.25:8080/news/get/count?language=" + language)
+      .get("https://www.fuledatech.com:8080/news/get/count?language=" + language)
       .then(res => {
         this.allcount = res.data.result;
       });

@@ -306,7 +306,7 @@ export default {
       }
       console.log(this.$i18n.locale);
       axios
-        .get("http://47.52.233.25:8080/product/get?language=" + language)
+        .get("https://www.fuledatech.com:8080/product/get?language=" + language)
         .then(res => {
           this.list = res.data.result;
           this.initHtml();
@@ -325,7 +325,7 @@ export default {
     }
     console.log(this.$i18n.locale);
     axios
-      .get("http://47.52.233.25:8080/product/get?language=" + language)
+      .get("https://www.fuledatech.com:8080/product/get?language=" + language)
       .then(res => {
         this.list = res.data.result;
         this.initHtml();

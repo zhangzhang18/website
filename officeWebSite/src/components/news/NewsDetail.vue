@@ -39,7 +39,7 @@ export default {
       console.log(this.$i18n.locale);
       axios
         .get(
-          `http://47.52.233.25:8080/news/get/single?id=${this.$route.params.id}&language=${language}`
+          `https://www.fuledatech.com:8080/news/get/single?id=${this.$route.params.id}&language=${language}`
         )
         .then(res => {
           this.news = res.data.result;
@@ -50,7 +50,7 @@ export default {
     var language = "Chinese";
     axios
       .get(
-        `http://47.52.233.25:8080/news/get/single?id=${this.$route.params.id}&language=${language}`
+        `https://www.fuledatech.com:8080/news/get/single?id=${this.$route.params.id}&language=${language}`
       )
       .then(res => {
         this.news = res.data.result;
