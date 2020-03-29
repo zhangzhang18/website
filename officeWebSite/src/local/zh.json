@@ -64,11 +64,11 @@
         },
         "product": {
             "title": "产品",
-            "service":"产品服务",
-            "productInfo":"商品信息",
-            "pre":"上一个：",
-            "next":"下一个：",
-            "return":"返回",
+            "service": "产品服务",
+            "productInfo": "商品信息",
+            "pre": "上一个：",
+            "next": "下一个：",
+            "return": "返回",
             "category": [
                 {
                     "title": "半导体产品"
@@ -84,15 +84,32 @@
         "news": {
             "title": "新闻",
             "center": "新闻中心",
-            "article":{
-                "author":"作者：",
-                "releaseTime":"发布时间："
-            
+            "article": {
+                "author": "作者：",
+                "releaseTime": "发布时间："
             }
         },
         "contact": {
-            "title": "联系",
-            "companyName": "富乐达科技有限公司"
+            "title": "咨询栏",
+            "companyName": "富乐达科技",
+            "form": "Contact Form",
+            "desc": "请填写以下所有信息。",
+            "company": "公司名称:",
+            "name": "名字:",
+            "mobile": "电话:",
+            "email": "邮箱:",
+            "confirm": "邮箱确认:",
+            "message": "咨询内容:",
+            "companyError": "请填写公司名称。",
+            "nameError": "请填写名字。",
+            "emailValid": "请填写正确邮箱格式。",
+            "mobileError": "请填写电话。",
+            "emailError": "请填写邮箱。",
+            "confirmError": "邮箱确认请填写。",
+            "messageError": "请填写咨询内容。",
+            "messageLengthError": "咨询内容不能超过1000字。",
+            "submit": "发送",
+            "reset": "重置"
         }
     }
 }

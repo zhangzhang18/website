@@ -291,7 +291,7 @@ export default {
       this.showIndex = this.$route.params.index;
       this.indexParam = this.$route.params.index;
       this.flag = false;
-      location.reload;
+      location.reload();
       console.log(this.$route.params.index);
     },
     "$i18n.locale": function() {
@@ -311,7 +311,7 @@ export default {
           this.list = res.data.result;
           this.initHtml();
         });
-      location.reload;
+      location.reload();
     }
   },
   mounted: function() {

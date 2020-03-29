@@ -26,7 +26,7 @@
       <swiper-slide>
         <div class="banner-img-box">
           <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
-          <div class="banner-text" v-show="flag">
+          <div class="banner-text">
             <p>
               <strong>{{$t("message.home.swiper[1].list[0].text")}}</strong>
             </p>
@@ -160,7 +160,7 @@ a {
     left: 0;
     width: 100%;
     z-index: 11;
-    padding-top: 50px;
+    padding: 150px 0;
     text-align: center;
     color: #3773db;
     font-size: 50px;

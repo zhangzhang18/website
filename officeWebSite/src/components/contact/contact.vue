@@ -3,48 +3,39 @@
     <div class="contact-img">
       <img src="@/assets/image/contact/contact.jpg" />
     </div>
-
-    <ul>
-      <li v-for="{error,i} in errors" :key="i">{{ error }}</li>
-    </ul>
-
     <div>
       <div class="form">
         <h1>
-          Contact Form
-          <span>Please fill all the texts in the fields.</span>
+          {{$t("message.contact.form")}}
+          <span>{{$t("message.contact.desc")}}</span>
         </h1>
         <div class="company-name form-input">
-          <label for="companyName">Company name:</label>
+          <label for="companyName">{{$t("message.contact.company")}}</label>
           <input name="companyName" v-model="companyName" type="text" />
         </div>
-        <div class="country form-input">
-          <label for="country">Country/Region:</label>
-          <input name="country" v-model="country" type="text" />
-        </div>
         <div class="name form-input">
-          <label for="name">Name:</label>
+          <label for="name">{{$t("message.contact.name")}}</label>
           <input name="name" v-model="name" type="text" />
         </div>
         <div class="mobile form-input">
-          <label for="mobile">Mobile:</label>
+          <label for="mobile">{{$t("message.contact.mobile")}}</label>
           <input name="mobile" v-model="mobile" type="text" />
         </div>
         <div class="email form-input">
-          <label for="email">Email:</label>
+          <label for="email">{{$t("message.contact.email")}}</label>
           <input name="email" v-model="email" type="text" />
         </div>
         <div class="email-confirm form-input">
-          <label for="mailConfirm">Email Confirm:</label>
+          <label for="mailConfirm">{{$t("message.contact.confirm")}}</label>
           <input name="mailConfirm" v-model="mailConfirm" type="text" />
         </div>
         <div class="message form-input">
-          <label for="message">message:</label>
+          <label for="message">{{$t("message.contact.message")}}</label>
           <textarea id="message" v-model="message" name="message"></textarea>
         </div>
         <div class="button form-input">
-          <button class="submit" @click="submit()">Submit</button>
-          <button type="reset" @click="reset()" class="reset">Reset</button>
+          <button class="submit" @click="submit()">{{$t("message.contact.submit")}}</button>
+          <button type="reset" @click="reset()" class="reset">{{$t("message.contact.reset")}}</button>
         </div>
       </div>
     </div>
@@ -57,7 +48,6 @@ export default {
     return {
       errors: "",
       companyName: "",
-      country: "",
       name: "",
       mobile: "",
       email: "",
@@ -68,7 +58,6 @@ export default {
   methods: {
     reset: function() {
       this.companyName = "";
-      this.country = "";
       this.name = "";
       this.mobile = "";
       this.email = "";
@@ -79,7 +68,6 @@ export default {
       if (this.checkForm()) {
         let data = {
           companyName: this.companyName,
-          country: this.country,
           name: this.name,
           mobile: this.mobile,
           email: this.email,
@@ -88,7 +76,6 @@ export default {
         axios
           .post("http://47.52.233.25:8080/message/add", {
             companyName: this.companyName,
-            country: this.country,
             name: this.name,
             mobile: this.mobile,
             email: this.email,
@@ -96,7 +83,7 @@ export default {
           })
           .then(res => {
             if (res.status == 200) {
-              alert("ntm success");
+              alert("success");
             }
           });
       }
@@ -104,43 +91,43 @@ export default {
     checkForm: function() {
       this.errors = "";
       if (!this.companyName) {
-        this.errors = "CompanyName required.";
-        alert(this.errors);
-        return false;
-      }
-      if (!this.country) {
-        this.errors = "Country required.";
+        this.errors = this.$i18n.t("message.contact.companyError");
         alert(this.errors);
         return false;
       }
       if (!this.name) {
-        this.errors = "Name required.";
+        this.errors = this.$i18n.t("message.contact.nameError");
         alert(this.errors);
         return false;
       }
       if (!this.mobile) {
-        this.errors = "Mobile required.";
+        this.errors = this.$i18n.t("message.contact.mobileError");
         alert(this.errors);
         return false;
       }
       if (!this.email) {
-        this.errors = "Email required.";
+        this.errors = this.$i18n.t("message.contact.emailError");
         alert(this.errors);
         return false;
       }
       if (!this.validEmail(this.email)) {
-        this.errors = "Email check error.";
+        this.errors = this.$i18n.t("message.contact.emailValid");
         alert(this.errors);
         return false;
       }
 
       if (this.email != this.mailConfirm) {
-        this.errors = "mailConfirm.";
+        this.errors = this.$i18n.t("message.contact.confirmError");
         alert(this.errors);
         return false;
       }
       if (!this.message) {
-        this.errors = "Message required.";
+        this.errors = this.$i18n.t("message.contact.messageError");
+        alert(this.errors);
+        return false;
+      }
+      if (this.message.length > 1000) {
+        this.errors = this.$i18n.t("message.contact.messageLengthError");
         alert(this.errors);
         return false;
       }

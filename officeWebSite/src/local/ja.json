@@ -64,11 +64,11 @@
         },
         "product": {
             "title": "製品",
-            "service":"製品サービス",
-            "productInfo":"製品一覧",
-            "pre":"前へ：",
-            "next":"次へ：",
-            "return":"戻る",
+            "service": "製品サービス",
+            "productInfo": "製品一覧",
+            "pre": "前へ：",
+            "next": "次へ：",
+            "return": "戻る",
             "category": [
                 {
                     "title": "半導体製品"
@@ -84,15 +84,32 @@
         "news": {
             "title": "新着情報",
             "center": "新着情報",
-            "article":{
-                "author":"作者：",
-                "releaseTime":"リリースタイム："
-            
+            "article": {
+                "author": "作者：",
+                "releaseTime": "リリースタイム："
             }
         },
         "contact": {
-            "title": "問い合わせ",
-            "companyName": "フレダ・テクノロジー有限会社"
+            "title": "お問い合わせフォーム",
+            "companyName": "フレダ・テクノロジー",
+            "form": "Contact Form",
+            "desc": "以下の空欄を全てご記入ください。",
+            "company": "会社名:",
+            "name": "お名前:",
+            "mobile": "電話番号:",
+            "email": "メールアドレス:",
+            "confirm": "メールアドレス確認:",
+            "message": "お問い合わせ内容:",
+            "companyError": "会社名ご記入ください。",
+            "nameError": "お名前ご記入ください。",
+            "mobileError": "電話番号ご記入ください。",
+            "emailValid": "メールアドレスを正しくご記入ください。",
+            "emailError": "メールアドレスご記入ください。",
+            "confirmError": "確認メールアドレスご記入ください。",
+            "messageError": "お問い合わせ内容ご記入ください。",
+            "messageLengthError": "お問い合わせ内容は1000文字を超えないようにしてください。",
+            "submit": "送信",
+            "reset": "リセッ:"
         }
     }
 }
