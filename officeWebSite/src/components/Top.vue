@@ -4,7 +4,7 @@
       <div class="top-company">
         <img class="logo-img" src="@/assets/image/logo.png" />
         <div class="company-name">
-          <img :src="nameImg"/>
+          <img :src="nameImg" />
         </div>
       </div>
       <div class="top-contact">
@@ -42,17 +42,21 @@
 export default {
   data() {
     return {
-      nameImg:"/static/name/name-zh.png"
+      nameImg: ""
     };
   },
 
   methods: {
     changeLan: function(lan) {
       this.$i18n.locale = lan;
-      this.nameImg="/static/name/name-"+lan+".png";
-      // window.localStorage.setItem("localeLanguage", lan);
+      this.nameImg = "/static/name/name-" + lan + ".png";
+      window.localStorage.setItem("localeLanguage", lan);
       // location.reload();
     }
+  },
+  mounted: function() {
+    var lan = this.$i18n.locale;
+    this.nameImg = "/static/name/name-" + lan + ".png";
   }
 };
 </script>

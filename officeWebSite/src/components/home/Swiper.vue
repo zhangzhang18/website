@@ -26,7 +26,7 @@
       <swiper-slide>
         <div class="banner-img-box">
           <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
-          <div class="banner-text">
+          <div class="banner-text" v-if="flag">
             <p>
               <strong>{{$t("message.home.swiper[1].list[0].text")}}</strong>
             </p>
