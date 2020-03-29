@@ -68,7 +68,6 @@ export default {
     }
     .article-detail {
       padding: 10px 160px;
-      text-align: left;
       .article-title {
         font-size: 18px;
         color: #434343;
@@ -87,10 +86,10 @@ export default {
       }
       .article-content {
         width: 100%;
-        .center {
-          margin: auto;
-          display: block;
-        }
+      }
+      .center {
+        margin: auto;
+        display: block;
       }
     }
   }
