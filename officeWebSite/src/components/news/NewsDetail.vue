@@ -9,8 +9,7 @@
       </div>
       <div class="article-detail">
         <div class="article-title">{{news.title}}</div>
-        <div class="article-source">
-        </div>
+        <div class="article-source"></div>
         <br />
         <br />
         <div class="article-content" v-html="news.content"></div>
@@ -88,6 +87,10 @@ export default {
       }
       .article-content {
         width: 100%;
+        .center {
+          margin: auto;
+          display: block;
+        }
       }
     }
   }

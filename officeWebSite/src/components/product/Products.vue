@@ -485,7 +485,6 @@ a {
               color: #535353;
               padding: 0 18px;
               margin: 0;
-              width: 80px;
               border-top: #048bcd 3px solid;
               z-index: 3;
               background-color: #fff;
@@ -502,6 +501,10 @@ a {
             .desc-img {
               width: 100%;
               //   display: flex;
+              .center {
+                margin: auto;
+                display: block;
+              }
               div {
                 width: 100%;
                 img {
