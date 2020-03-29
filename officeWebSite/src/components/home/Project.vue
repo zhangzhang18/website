@@ -76,7 +76,11 @@ export default {
       }
       console.log(this.$i18n.locale);
       axios
-        .get("https://www.fuledatech.com:8080/news/get?language=" + language)
+        .get(
+          "https://www.fuledatech.com:8080/news/get?language=" +
+            language +
+            "&pageNum=1&pageSize=5"
+        )
         .then(res => {
           this.newsList = res.data.result;
         });
