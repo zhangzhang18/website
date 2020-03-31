@@ -105,4 +105,12 @@ export default {
     }
   }
 }
+@media screen and(max-device-width:1200px) {
+  .news {
+    text-align: center;
+    .content {
+          padding: 0;
+    }
+  }
+}
 </style>

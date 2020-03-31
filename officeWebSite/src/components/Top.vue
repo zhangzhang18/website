@@ -51,7 +51,7 @@ export default {
       this.$i18n.locale = lan;
       this.nameImg = "/static/name/name-" + lan + ".png";
       window.localStorage.setItem("localeLanguage", lan);
-      // location.reload();
+     location.reload();
     }
   },
   mounted: function() {
