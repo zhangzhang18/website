@@ -33,7 +33,7 @@
     </div>
     <div class="copyright">
       <div class="copyright-content">
-        <p>© 2020-2020,www.fldtech.jp</p>
+        <p>© {{new Date().getYear()}},www.fuledatech.com</p>
       </div>
     </div>
   </div>

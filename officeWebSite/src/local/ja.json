@@ -93,8 +93,8 @@
             "callUsEmail": "service@fuledatech.com",
             "callUsPhone1": "+81-09050920178",
             "callUsPhone2": "+86-13942008044",
-            "title": "お問い合わせフォーム",
-            "companyName": "フレダ・テクノロジー",
+            "title": "お問い合わせ",
+            "companyName": "フレダ・テクノロジー有限会社",
             "form": "Contact Form",
             "desc": "以下の空欄を全てご記入ください。",
             "company": "会社名:",
@@ -120,7 +120,7 @@
             "wechat": "Wechat:18004113729",
             "contactPhone1": "Contact:Shon/Call:+81-09050920178",
             "contactPhone2": "Contact:Luna/Call:+86-13942008044",
-            "contactEmail": "Email:fldtech@dingtalk.com"
+            "contactEmail": "Email:service@fuledatech.com"
         }
     }
 }

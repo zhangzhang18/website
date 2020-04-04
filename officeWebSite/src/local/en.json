@@ -5,7 +5,7 @@
             "language": "Language",
             "introduction": {
                 "aboutUs": "About us",
-                "companyIntr": "company overview",
+                "companyIntr": "Company Overview",
                 "intrContent": [
                     {
                         "text": "Fuleda Technology Co., Ltd put「customer first」and「quality first」as its business philosophy. We provide high-quality products and services to our partners and strive to become a high-value service provider in the semiconductor industry."
@@ -71,10 +71,10 @@
                     "title": "Semiconductor"
                 },
                 {
-                    "title": "Solar energy"
+                    "title": "Solar Energy"
                 },
                 {
-                    "title": "Silicon nitride"
+                    "title": "Silicon Nitride"
                 }
             ]
         },
@@ -90,7 +90,7 @@
             "callUsEmail": "service@fuledatech.com",
             "callUsPhone1": "+81-09050920178",
             "callUsPhone2": "+86-13942008044",
-            "title": "Contact",
+            "title": "CONTACT",
             "companyName": "FULEDA TECHNOLOGY LIMITED",
             "form": "Contact Form",
             "desc": "Please fill all the texts in the fields.",
@@ -117,7 +117,7 @@
             "wechat": "Wechat:18004113729",
             "contactPhone1": "Contact:Shon/Call:+81-09050920178",
             "contactPhone2": "Contact:Luna/Call:+86-13942008044",
-            "contactEmail": "Email:fldtech@dingtalk.com"
+            "contactEmail": "Email:service@fuledatech.com"
         }
     }
 }
