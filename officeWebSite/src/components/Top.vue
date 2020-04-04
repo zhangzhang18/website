@@ -14,7 +14,8 @@
           </div>
           <div class="contact-call">
             <strong>CALL US</strong>
-            <div class="contact-number">+86-18004113729</div>
+            <div class="contact-number">{{$t("message.contact.callUsPhone1")}}</div>
+            <div class="contact-number">{{$t("message.contact.callUsPhone2")}}</div>
           </div>
         </div>
         <div class="contact-content">
@@ -23,7 +24,7 @@
           </div>
           <div class="contact-call">
             <strong>EMAIL US</strong>
-            <div class="contact-number">fldtech@dingtalk.com</div>
+            <div class="contact-number">{{$t("message.contact.callUsEmail")}}</div>
           </div>
         </div>
         <div class="top-language">
@@ -51,7 +52,7 @@ export default {
       this.$i18n.locale = lan;
       this.nameImg = "/static/name/name-" + lan + ".png";
       window.localStorage.setItem("localeLanguage", lan);
-     location.reload();
+      location.reload();
     }
   },
   mounted: function() {

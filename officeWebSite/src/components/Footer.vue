@@ -23,12 +23,13 @@
       </ul>
     </div>
     <div class="contact-content">
-      <p class="contact-title">Contact Us</p>
+      <p class="contact-title">{{$t("message.footer.contactUs")}}</p>
       <p class="contact-number">{{$t("message.contact.companyName")}}</p>
-      <p class="contact-number">Unit D, 16/F, One Capital Place 18 Luard Road,Wanchai,Hong Kong</p>
-      <p class="contact-number">Wechat:18004113729</p>
-      <p class="contact-number">Contact:LEO / Call:+86-18004113729</p>
-      <p class="contact-number">Email:fldtech@dingtalk.com</p>
+      <p class="contact-number">{{$t("message.footer.address")}}</p>
+      <p class="contact-number">{{$t("message.footer.wechat")}}</p>
+      <p class="contact-number">{{$t("message.footer.contactPhone1")}}</p>
+      <p class="contact-number">{{$t("message.footer.contactPhone2")}}</p>
+      <p class="contact-number">{{$t("message.footer.contactEmail")}}</p>
     </div>
     <div class="copyright">
       <div class="copyright-content">

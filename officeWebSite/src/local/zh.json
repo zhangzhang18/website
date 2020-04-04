@@ -28,35 +28,35 @@
                 {
                     "list": [
                         {
-                            "text": "高品质半导体产品服务商"
+                            "text": ""
                         },
                         {
-                            "text": "致力于全面的半导体硅片解决方案"
+                            "text": ""
                         },
                         {
-                            "text": "一站式"
+                            "text": ""
                         },
                         {
-                            "text": "全球化"
+                            "text": ""
                         }
                     ]
                 },
                 {
                     "list": [
                         {
-                            "text": "拥有太阳能以及氮化硅陶瓷等领域高品质合作伙伴"
+                            "text": ""
                         },
                         {
-                            "text": "提供现货产品，定制加工服务"
+                            "text": ""
                         },
                         {
-                            "text": "高效"
+                            "text": ""
                         },
                         {
-                            "text": "专业"
+                            "text": ""
                         },
                         {
-                            "text": "便利"
+                            "text": ""
                         }
                     ]
                 }
@@ -90,6 +90,9 @@
             }
         },
         "contact": {
+            "callUsEmail":"service@fuledatech.com",
+            "callUsPhone1":"+81-09050920178",
+            "callUsPhone2":"+86-13942008044",
             "title": "咨询栏",
             "companyName": "富乐达科技",
             "form": "Contact Form",
@@ -110,6 +113,14 @@
             "messageLengthError": "咨询内容不能超过1000字。",
             "submit": "发送",
             "reset": "重置"
+        },
+        "footer": {
+            "contactUs": "Contact Us",
+            "address": "Unit D, 16/F, One Capital Place 18 Luard Road,Wanchai,Hong Kong",
+            "wechat": "Wechat:18004113729",
+            "contactPhone1": "Contact:Shon/Call:+81-09050920178",
+            "contactPhone2": "Contact:Luna/Call:+86-13942008044",
+            "contactEmail": "Email:service@fuledatech.com"
         }
     }
 }

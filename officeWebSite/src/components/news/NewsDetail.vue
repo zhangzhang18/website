@@ -46,7 +46,15 @@ export default {
     }
   },
   mounted: function() {
-    var language = "Chinese";
+    var language = this.$i18n.locale;
+    if (language == "en") {
+      language = "English";
+    } else if (language == "ja") {
+      language = "Japanese";
+    } else {
+      language = "Chinese";
+    }
+    console.log(this.$i18n.locale);
     axios
       .get(
         `https://www.fuledatech.com:8080/news/get/single?id=${this.$route.params.id}&language=${language}`
@@ -109,7 +117,7 @@ export default {
   .news {
     text-align: center;
     .content {
-          padding: 0;
+      padding: 0;
     }
   }
 }

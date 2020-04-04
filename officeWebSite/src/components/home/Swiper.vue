@@ -1,111 +1,24 @@
 <template>
   <div class="scroll">
-    <swiper :options="swiperOption" ref="mySwiper">
-      <!-- slides -->
-      <swiper-slide>
-        <div class="banner-img-box">
-          <img class="banner-img" src="@/assets/image/banner/banner-01.png" />
-          <div class="banner-text">
-            <p>
-              <strong>{{$t("message.home.swiper[0].list[0].text")}}</strong>
-            </p>
-            <p>
-              <strong>{{$t("message.home.swiper[0].list[1].text")}}</strong>
-            </p>
-            <p>
-              <span>
-                <strong>{{$t("message.home.swiper[0].list[2].text")}}</strong>
-              </span>
-              <span>
-                <strong>{{$t("message.home.swiper[0].list[3].text")}}</strong>
-              </span>
-            </p>
-          </div>
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <div class="banner-img-box">
-          <img class="banner-img" src="@/assets/image/banner/banner-02.jpg" />
-          <div class="banner-text" v-if="flag">
-            <p>
-              <strong>{{$t("message.home.swiper[1].list[0].text")}}</strong>
-            </p>
-            <p>
-              <strong>{{$t("message.home.swiper[1].list[1].text")}}</strong>
-            </p>
-            <p>
-              <span>
-                <strong>{{$t("message.home.swiper[1].list[2].text")}}</strong>
-              </span>
-              <span>
-                <strong>{{$t("message.home.swiper[1].list[3].text")}}</strong>
-              </span>
-              <span>
-                <strong>{{$t("message.home.swiper[1].list[4].text")}}</strong>
-              </span>
-            </p>
-          </div>
-        </div>
-      </swiper-slide>
-      <!-- Optional controls -->
-      <div class="swiper-pagination" slot="pagination"></div>
-      <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
-      <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
-      <!-- <div class="swiper-scrollbar"   slot="scrollbar"></div> -->
-    </swiper>
+    <a-carousel autoplay="true" effect="fade">
+      <div class="swiper-slide">
+        <img class="banner-img" :src="imgUrls[0]" />
+      </div>
+      <div class="swiper-slide">
+        <img class="banner-img" :src="imgUrls[1]" />
+      </div>
+    </a-carousel>
   </div>
 </template>
 
 <script>
-import { swiper, swiperSlide } from "vue-awesome-swiper";
+// import { Carousel } from "antd";
+// import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
-  name: "HelloWorld",
-  components: {
-    swiper,
-    swiperSlide
-  },
+  components: {},
   data() {
     return {
-      flag: false,
-      swiperOption: {
-        notNextTick: true,
-        //循环
-        loop: true,
-        //设定初始化时slide的索引
-        initialSlide: 0,
-        //自动播放
-        autoplay: true,
-        autoplay: {
-          delay: 3000,
-          stopOnLastSlide: false,
-          disableOnInteraction: true
-        },
-        // 设置轮播
-        effect: "fade",
-        //滑动速度
-        speed: 800,
-        //滑动方向
-        direction: "horizontal",
-        //小手掌抓取滑动
-        // grabCursor : true,
-        //滑动之后回调函数
-        on: {
-          slideChangeTransitionEnd: function() {
-            // console.log(this.activeIndex);//切换结束时，告诉我现在是第几个slide
-          }
-        },
-        //左右点击
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        //分页器设置
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true
-        }
-      },
-      swiperSlides: [1, 2, 3, 4]
+      imgUrls: []
     };
   },
   computed: {
@@ -115,15 +28,27 @@ export default {
   },
   mounted() {
     //可以使用swiper这个对象去使用swiper官网中的那些方法
-    console.log("this is current swiper instance object", this.swiper);
-    // this.swiper.slideTo(0, 0, false);
-    this.flag = true;
+    // console.log("this is current swiper instance object", this.swiper);
+    var lan = this.$i18n.locale;
+    this.imgUrls.push("/static/swiper/swiper-" + lan + "-01.jpg");
+    this.imgUrls.push("/static/swiper/swiper-" + lan + "-02.jpg");
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped  lang="less">
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
 h1,
 h2 {
   font-weight: normal;

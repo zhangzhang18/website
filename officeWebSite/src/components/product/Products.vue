@@ -1,5 +1,5 @@
 <template>
-  <div class="product">
+  <div class="product-component">
     <Swiper></Swiper>
     <div class="content">
       <div class="title">
@@ -291,7 +291,6 @@ export default {
       this.showIndex = this.$route.params.index;
       this.indexParam = this.$route.params.index;
       this.flag = false;
-      location.reload();
       console.log(this.$route.params.index);
     },
     "$i18n.locale": function() {
@@ -333,11 +332,11 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="less">
 a {
   cursor: pointer;
 }
-.product {
+.product-component {
   text-align: center;
   .content {
     padding: 10px 160px;
@@ -500,7 +499,12 @@ a {
 
             .desc-img {
               width: 100%;
-              //   display: flex;
+              p {
+                width: 100%;
+              }
+              img {
+                width: 100%;
+              }
               .center {
                 margin: auto;
                 display: block;
