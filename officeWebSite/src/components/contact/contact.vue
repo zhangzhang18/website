@@ -66,6 +66,7 @@ export default {
     },
     submit: function() {
       if (this.checkForm()) {
+        var lan = this.$i18n.locale;
         let data = {
           companyName: this.companyName,
           name: this.name,
@@ -79,7 +80,8 @@ export default {
             name: this.name,
             mobile: this.mobile,
             email: this.email,
-            message: this.message
+            message: this.message,
+            language: lan
           })
           .then(res => {
             if (res.status == 200) {
